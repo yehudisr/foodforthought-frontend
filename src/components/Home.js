@@ -1,6 +1,6 @@
 import { Box, Heading, Text, InputGroup, Button, Input, InputRightElement } from '@chakra-ui/react';
 
-// import { Navbar } from '../components/partials/Navbar';
+// import { Navbar } from '../components/Navbar';
 
 export default function Home() {
 	return (
