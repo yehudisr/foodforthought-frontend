@@ -6,8 +6,8 @@ export default function Home() {
 	return (
 		<div>
 
-            I am food giver
-        I would like to order food
+         I would like to list food
+         I would like to order food
         </div>
 
         

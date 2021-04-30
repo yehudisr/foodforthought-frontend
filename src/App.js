@@ -20,14 +20,14 @@ return (
       <Home/>
     </Route>
     <Route exact path="/giver"> 
-      {giver ? 
+      
       
       <Giver/> 
       
-      : null}
+   
     </Route>
     <Route exact path="/listings"> 
-      {receiver ? <Receiver /> : null}
+      <Receiver /> 
     </Route>
 
   </Switch>
