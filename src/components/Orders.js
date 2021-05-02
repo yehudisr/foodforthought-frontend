@@ -9,7 +9,7 @@ import {
     TableCaption,
   } from "@chakra-ui/react"
   
-function FoodItem({foodlisting}) {
+function Orders({foodlisting}) {
 
     console.log(foodlisting)
 
@@ -22,8 +22,8 @@ function FoodItem({foodlisting}) {
       <Td>{foodlisting.description}</Td>
       <Td isNumeric>{foodlisting.amount}</Td>
       <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
-      <Td>Active</Td>
-      <Td>edit / delete</Td>
+      <Td>Available</Td>
+      <Td>Order</Td>
     </Tr>
    </Tbody>
               
@@ -33,4 +33,4 @@ function FoodItem({foodlisting}) {
         
 }
 
-export default FoodItem
+export default Orders

@@ -1,4 +1,4 @@
-import FoodItem from './FoodItem';
+import Orders from './Orders';
 import {
     Table,
     Thead,
@@ -11,10 +11,10 @@ import {
     Box
   } from "@chakra-ui/react"
 
-function FoodListings({foodListings}) {
+function FoodOrders({foodListings}) {
     console.log(foodListings)
 
-    const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
+    const giverListings = foodListings.map(foodlisting => <Orders key={foodlisting.name} foodlisting={foodlisting} />)
 
 return(
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden"> 
@@ -26,7 +26,7 @@ return(
             <Th isNumeric>Amount</Th>
             <Th>Times</Th>
             <Th>Status</Th>
-            <Th>Edit</Th>
+            <Th>Order</Th>
             </Tr>
         </Thead>
         {giverListings}
@@ -35,4 +35,4 @@ return(
 )
 
 }
-export default FoodListings
+export default FoodOrders

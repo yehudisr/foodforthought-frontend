@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import FoodListings from './FoodListings';
+import FoodOrders from './FoodOrders';
+import { Box, Spacer, Text } from "@chakra-ui/react";
 
 function Receiver(){
 
@@ -17,10 +18,12 @@ function Receiver(){
     console.log(foodListings)
 
     return(
-        <div>
-        <p>Main Container</p>
-        <FoodListings foodListings={foodListings}/>
-        </div>
+        <Box p="8">
+        <Box padding="4">
+            <Text fontSize="4xl">Hello, </Text>
+             </Box>
+        <FoodOrders foodListings={foodListings}/>
+        </Box>
     )
 }
 
