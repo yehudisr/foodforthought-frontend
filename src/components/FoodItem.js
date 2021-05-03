@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux'
-import { removeListing } from '../redux/giverSlice'
+import { removeListing } from '../redux/foodListingSlice'
 import {
     Table,
     Thead,
@@ -25,6 +25,7 @@ function FoodItem({foodlisting}) {
         .then (resp => resp.json())
         .then(foodlisting => {
           dispatch(removeListing(foodlisting))
+          
         } )
         
       }

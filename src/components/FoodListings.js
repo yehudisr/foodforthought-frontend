@@ -18,7 +18,7 @@ import {
 function FoodListings() {
     const [open, setOpen] = useState(false)
     const giver = useSelector(state => state.giver)
-    const foodListings = useSelector(state => state.giver.food_listings)
+    const foodListings = useSelector(state => state.foodListing)
     console.log(foodListings)
      
     // useDispatch(setListings(giver.food_listings))

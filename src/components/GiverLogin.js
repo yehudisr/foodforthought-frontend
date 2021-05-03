@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
 import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
-import { setListings } from '../redux/giverSlice'
+import { setListings } from '../redux/foodListingSlice'
 
 
 
@@ -51,7 +51,7 @@ function GiverLogin() {
            
             if(rememberMe){
               localStorage.setItem('currentGiver', JSON.stringify(data))
-              
+              localStorage.setItem('giverFoodListings', JSON.stringify(data.food_listings))
             }
     
             history.push(`/giver/${data.id}`);

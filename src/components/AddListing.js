@@ -3,7 +3,7 @@ import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHead
 import DateTimePicker from 'react-datetime-picker'
 import { useState, useRef } from 'react'
 import { useDisclosure } from "@chakra-ui/react"
-import { addListing } from '../redux/giverSlice'
+import { addListing } from '../redux/foodListingSlice'
 
 function AddListing(){
    const giver = useSelector(state => state.giver)
