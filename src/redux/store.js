@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import giverReducer from './giverSlice'
 import receiverReducer from './receiverSlice'
+import foodListingReducer from './foodListingSlice'
 
 export default configureStore({
     reducer: {
         giver: giverReducer,
         receiver: receiverReducer,
-        // listings: listingReducer,
+        foodListing: foodListingReducer
         // orders: orderReducer
     }
   })

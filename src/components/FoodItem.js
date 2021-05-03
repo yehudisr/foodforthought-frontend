@@ -1,3 +1,5 @@
+import {useSelector, useDispatch} from 'react-redux'
+import { removeListing } from '../redux/foodListingSlice'
 import {
     Table,
     Thead,
@@ -6,12 +8,21 @@ import {
     Tr,
     Th,
     Td,
-    TableCaption,
+    TableCaption, Button
   } from "@chakra-ui/react"
   
 function FoodItem({foodlisting}) {
 
     console.log(foodlisting)
+
+    const dispatch= useDispatch()
+
+    function handleDelete(){
+        fetch(`http://localhost:3000/food_listings/${foodlisting.id}`,{
+          method: "DELETE"
+        })
+        dispatch(removeListing(foodlisting))
+      }
 
     return(
        <>
@@ -23,7 +34,7 @@ function FoodItem({foodlisting}) {
       <Td isNumeric>{foodlisting.amount}</Td>
       <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
       <Td>Active</Td>
-      <Td>edit / delete</Td>
+      <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
     </Tr>
    </Tbody>
               

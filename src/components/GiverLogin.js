@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
 import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
+import { setListings } from '../redux/foodListingSlice'
 
 
 
@@ -13,6 +14,8 @@ function GiverLogin() {
     const [errors, setErrors] = useState([])
     const [rememberMe, setRememberMe] = useState(false)
     const [open, setOpen] = useState(false);
+    const giver = useSelector(state => state.giver)
+   
   
 
   const handleOpen = () => {
@@ -42,8 +45,9 @@ function GiverLogin() {
             setErrors(data.errors);
             
           } else {
-            console.log(data)
+            console.log(data.food_listings, "FOODLISTING")
             dispatch(setGiver(data))
+            dispatch(setListings(data.food_listings))
             if(rememberMe){
               localStorage.setItem('currentGiver', JSON.stringify(data))
             }

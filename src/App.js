@@ -23,7 +23,7 @@ return (
   <Route exact path="/"> 
       <Home/>
     </Route>
-    <Route exact path="/giver"> 
+    <Route exact path="/giver/:id"> 
       <Giver/> 
     </Route>
     <Route exact path="/listings"> 
