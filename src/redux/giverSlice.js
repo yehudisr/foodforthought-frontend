@@ -9,8 +9,25 @@ const giverSlice = createSlice({
        return state = action.payload
         // console.log(state)
     },
+    setListings: (state, action) =>{
+      return action.payload
+      
+   },
+   addListing: (state, action) => {
+       state.food_listings.push(action.payload)
+   },
+   removeListing: (state, action) => {
+       const fl = state.giver
+       const updated = fl.filter(listing => listing.id !== action.payload.id)
+       return updated
+       
+   },
+   updateListing: (state, action)=> {
+     const request = state.find(request => request.id === action.payload.id)
+     
+   }
   }
 })
 
-export const {setGiver} = giverSlice.actions
+export const {setGiver, setListings, addListing, removeListing} = giverSlice.actions
 export default giverSlice.reducer

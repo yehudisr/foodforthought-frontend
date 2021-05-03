@@ -5,13 +5,13 @@ import { Button, ButtonGroup, Box, Flex, Spacer } from "@chakra-ui/react";
 
 function Navbar() {
 
-    const getUser = localStorage.getItem('user')
+    const getUser = localStorage.getItem('currentGiver')
     const currentUser = JSON.parse(getUser)
     const history = useHistory()
   
   
     const handleLogout = () => {
-      localStorage.removeItem('user')
+      localStorage.removeItem('currentGiver')
       history.push('/')
     //   setLoggedIn(false)
     }

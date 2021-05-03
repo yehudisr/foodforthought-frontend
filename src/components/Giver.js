@@ -8,17 +8,9 @@ function Giver(){
    
     const giver = useSelector(state => state.giver)
     console.log(giver)
-
-    // const [foodListings, setFoodListings] = useState([])
    
     // const getUser = localStorage.getItem('user')
     // const currentUser = JSON.parse(getUser)
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:3000/food_givers/${giver.id}`)
-    //         .then(res => res.json())
-    //         .then(data => dispatch(data.food_listings))
-    // }, [])
 
 
 

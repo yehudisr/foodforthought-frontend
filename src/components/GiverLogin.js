@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
 import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
-import { setListings } from '../redux/foodListingSlice'
+import { setListings } from '../redux/giverSlice'
 
 
 
@@ -46,10 +46,12 @@ function GiverLogin() {
             
           } else {
             console.log(data.food_listings, "FOODLISTING")
-            dispatch(setGiver(data))
-            dispatch(setListings(data.food_listings))
+               dispatch(setGiver(data))
+               dispatch(setListings(data.food_listings))
+           
             if(rememberMe){
               localStorage.setItem('currentGiver', JSON.stringify(data))
+              
             }
     
             history.push(`/giver/${data.id}`);
@@ -75,7 +77,7 @@ function GiverLogin() {
                     <Box p={4}> <FormControl   isRequired>
                         <FormLabel>Email</FormLabel>
                         <Input id="email" name="email" value={formData.email}
-                    onChange={handleChange} placeholder="Email" />
+                         onChange={handleChange} placeholder="Email" />
                         </FormControl></Box><Spacer/>
 
                         <Box p={4}><InputGroup size="md"> 
@@ -83,6 +85,7 @@ function GiverLogin() {
                         <FormLabel>Password</FormLabel>
                         <Input
                         id="password" 
+                        type="password"
                         name="password" 
                         value={formData.password}
                         onChange={handleChange} 
@@ -94,10 +97,8 @@ function GiverLogin() {
                     </InputGroup>
                     </Box>
                          <Box> 
-                             <FormControl
-              control={<Checkbox value="remember" color="primary" onChange={()=> setRememberMe(!rememberMe)}/>}
-              label="Remember me"
-            /></Box>
+                             <Checkbox value="remember" color="primary" onChange={()=> setRememberMe(!rememberMe)}/>Remember Me
+             </Box>
                 
                     <Button type="submit" value="login" >Login</Button> 
                     <Box><Link href="#" variant="body2" onClick={handleOpen}>

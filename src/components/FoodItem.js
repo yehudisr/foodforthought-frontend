@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux'
-import { removeListing } from '../redux/foodListingSlice'
+import { removeListing } from '../redux/giverSlice'
 import {
     Table,
     Thead,
@@ -10,6 +10,7 @@ import {
     Td,
     TableCaption, Button
   } from "@chakra-ui/react"
+
   
 function FoodItem({foodlisting}) {
 
@@ -21,8 +22,16 @@ function FoodItem({foodlisting}) {
         fetch(`http://localhost:3000/food_listings/${foodlisting.id}`,{
           method: "DELETE"
         })
-        dispatch(removeListing(foodlisting))
+        .then (resp => resp.json())
+        .then(foodlisting => {
+          dispatch(removeListing(foodlisting))
+        } )
+        
       }
+
+     const start =  foodlisting.start_time
+
+     console.log(Date.parse(foodlisting.start_time))
 
     return(
        <>
@@ -32,7 +41,7 @@ function FoodItem({foodlisting}) {
       <Td>{foodlisting.name}</Td>
       <Td>{foodlisting.description}</Td>
       <Td isNumeric>{foodlisting.amount}</Td>
-      <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
+      <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
       <Td>Active</Td>
       <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
     </Tr>
