@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { useDisclosure } from "@chakra-ui/react"
+import { updateListing } from '../redux/foodListingSlice'
 
 
 function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
-  
+    const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
     const [formData, setFormData] = useState({  note: "", amount: ""})
 
@@ -38,11 +39,18 @@ function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
         })
         .then (res => res.json())
         .then(data => {
-            // if (data.id === null){
-            // alert("you already ordered this!")
-            // } else
+            if (data.id === null){
+            alert("you already ordered this!")
+            } else
             handleOpen()
             onOrdered(ordered => !ordered)
+            console.log(data)
+
+            fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
+            
+                .then (res => res.json())
+                .then(dispatch(updateListing(data)))
+
         })
         setFormData({  note: "", amount: ""})
 }

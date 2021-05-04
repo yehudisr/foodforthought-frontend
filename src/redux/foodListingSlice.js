@@ -23,13 +23,15 @@ const foodListingSlice = createSlice({
           return updated
       },
       updateListing: (state, action)=> {
-        const request = state.find(request => request.id === action.payload.id)
-        
-      }
+        const listing = state.find(listing => listing.id === action.payload.id)
+      },
+      // updateAmount: (state, action) => {
+
+      // }
     }
 })
 
-export const {setListings, addListing, removeListing} = foodListingSlice.actions
+export const {setListings, addListing, removeListing, updateListing} = foodListingSlice.actions
 
 export default foodListingSlice.reducer
 

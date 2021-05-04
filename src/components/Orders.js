@@ -16,7 +16,6 @@ import {
 function Orders({foodlisting}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
-
   const [ordered, setOrdered] = useState(false)
 
       const handleOpen = () => {
@@ -34,9 +33,9 @@ function Orders({foodlisting}) {
       <Td>{foodlisting.food_giver.location}</Td>
       <Td isNumeric>{foodlisting.amount}</Td>
       <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
-      <Td>{!ordered ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
+      <Td>{!ordered && foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
       <Td>
-        {!ordered && <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button>}
+        {!ordered && foodlisting.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null}
       
       {open && ( <Modal
         
