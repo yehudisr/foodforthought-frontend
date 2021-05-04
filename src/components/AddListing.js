@@ -45,7 +45,7 @@ function AddListing(){
         body: JSON.stringify(newListing)
       })
       .then(resp=>resp.json())
-      .then((newListing=>{ console.log(newListing)
+      .then((newListing=>{ 
           dispatch(addListing(newListing))
         }))
         setFormData({ name: "", description: "", amount: "", start_time: "", end_time:""})
