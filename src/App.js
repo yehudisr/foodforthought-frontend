@@ -13,15 +13,15 @@ function App() {
   const giver = useSelector(state => state.giver)
   const receiver = useSelector(state => state.receiver)
   const dispatch = useDispatch()
+  console.log(giver)
 
-
-  useEffect(()=>{
-    fetch(`http://localhost:3000/food_givers/${giver.id}`)
-      .then(res => res.json())
-      .then(data => {
-        dispatch(setListings(data.food_listings))
-      })
-    }, [])
+  // useEffect(()=>{
+  //   fetch(`http://localhost:3000/food_givers/${giver.id}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       dispatch(setListings(data.food_listings))
+  //     })
+  //   }, [])
 
   
 return (

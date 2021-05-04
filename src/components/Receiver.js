@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import FoodOrders from './FoodOrders';
 import { Box, Spacer, Text } from "@chakra-ui/react";
+import { useSelector, useDispatch } from 'react-redux'
 
 function Receiver(){
 
     const [foodListings, setFoodListings] = useState([])
-
-    const getUser = localStorage.getItem('user')
-    const currentUser = JSON.parse(getUser)
+    const receiver = useSelector(state => state.receiver)
+    // const getUser = localStorage.getItem('user')
+    // const currentUser = JSON.parse(getUser)
 
     useEffect(() => {
         fetch(`http://localhost:3000/food_listings`)
@@ -20,7 +21,7 @@ function Receiver(){
     return(
         <Box p="8">
         <Box padding="4">
-            <Text fontSize="4xl">Hello, </Text>
+            <Text fontSize="4xl">Hello, {receiver.name} </Text>
              </Box>
         <FoodOrders foodListings={foodListings}/>
         </Box>

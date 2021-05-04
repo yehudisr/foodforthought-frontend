@@ -1,6 +1,7 @@
-import { Box, Heading, Text, Button, Input, Spacer, Flex, Container, Image} from '@chakra-ui/react';
+import { Box, Heading, Text, Button, Input, Spacer, Flex, Container, Image} from '@chakra-ui/react'
 import GiverLogin from './GiverLogin'
-import { useState } from 'react';
+import { useState } from 'react'
+import ReceiverLogin from './ReceiverLogin'
 
 
 export default function Home() {
@@ -34,7 +35,7 @@ function toggleOrder(){
          {displayGiver && <GiverLogin/>} </Box><Spacer/>
          <Box p={4} maxW="sm" borderWidth="1px" borderRadius="lg">
          <Button size="sm" borderRadius="md" onClick={toggleOrder}>Order Food</Button>
-         {/* {displayOrder && <OrderLogin/>} */}
+         {displayOrder && <ReceiverLogin/>}
          </Box>
         
      
