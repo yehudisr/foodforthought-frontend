@@ -10,14 +10,17 @@ import {
   } from "@chakra-ui/react"
   import { useState, useEffect } from 'react'
   import OrderForm from './OrderForm'
+  import { useDisclosure } from "@chakra-ui/react"
+  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
   
 function Orders({foodlisting}) {
-
+  const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
 
   const [ordered, setOrdered] = useState(false)
 
       const handleOpen = () => {
+        onOpen()
         setOpen(open => !open)
       }
 
@@ -35,7 +38,24 @@ function Orders({foodlisting}) {
       <Td>
         {!ordered && <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button>}
       
-      {open && <OrderForm onOrdered={setOrdered} ordered={ordered} onOpen={handleOpen} foodlisting={foodlisting}/>}</Td>
+      {open && ( <Modal
+        
+          isOpen={isOpen}
+          onClose={onClose}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Place Your Order</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} foodlisting={foodlisting}/>
+               </ModalBody>
+              <ModalFooter>
+              <Button onClick={onClose}>Cancel</Button>
+             </ModalFooter>
+          </ModalContent>
+        </Modal>)}
+        </Td>
     </Tr>
    </Tbody>
               

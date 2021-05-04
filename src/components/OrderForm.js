@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-function OrderForm({foodlisting, onOpen, onOrdered, ordered}){
+import { useDisclosure } from "@chakra-ui/react"
 
+
+function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
+  
     const receiver = useSelector(state => state.receiver)
-    console.log(receiver)
-
     const [formData, setFormData] = useState({  note: "", amount: ""})
 
     function handleChange(event){
@@ -40,7 +41,7 @@ function OrderForm({foodlisting, onOpen, onOrdered, ordered}){
             // if (data.id === null){
             // alert("you already ordered this!")
             // } else
-            onOpen()
+            handleOpen()
             onOrdered(ordered => !ordered)
         })
         setFormData({  note: "", amount: ""})
@@ -49,16 +50,6 @@ function OrderForm({foodlisting, onOpen, onOrdered, ordered}){
     
     return(
         <> 
-        {/* <Modal
-          initialFocusRef={initialRef}
-          isOpen={isOpen}
-          onClose={onClose}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Add a food listing</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}> */}
                 <form onSubmit={handleSubmit} >
                 <input name="amount" placeholder="Amount" 
                 value={formData.amount}
@@ -69,16 +60,7 @@ function OrderForm({foodlisting, onOpen, onOrdered, ordered}){
           
                 <input type="submit" value="Place Order" />
                 </form>
-            {/* </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
-                Save
-              </Button>
-              <Button onClick={onClose}>Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal> */}
+           
       </>
     )
 
