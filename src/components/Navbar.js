@@ -4,6 +4,7 @@ import { Button, ButtonGroup, Box, Flex, Spacer } from "@chakra-ui/react";
 import { useDispatch } from 'react-redux';
 import {setGiver} from '../redux/giverSlice';
 import {setListings} from '../redux/foodListingSlice'
+import {setReceiver} from '../redux/receiverSlice'
 
 
 function Navbar() {
@@ -20,6 +21,7 @@ function Navbar() {
       history.push('/')
       dispatch(setGiver(null))
       dispatch(setListings([]))
+      dispatch(setReceiver(null))
     }
 
     return (

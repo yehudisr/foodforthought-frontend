@@ -20,6 +20,7 @@ function Orders({foodlisting}) {
     <Tr>
       <Td>{foodlisting.name}</Td>
       <Td>{foodlisting.description}</Td>
+      <Td>{foodlisting.food_giver.location}</Td>
       <Td isNumeric>{foodlisting.amount}</Td>
       <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
       <Td>Available</Td>

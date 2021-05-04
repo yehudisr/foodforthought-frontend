@@ -23,6 +23,7 @@ return(
             <Tr backgroundColor='#EEF0EB'>
             <Th>Name</Th>
             <Th>Description</Th>
+            <Th>Location</Th>
             <Th isNumeric>Amount</Th>
             <Th>Times</Th>
             <Th>Status</Th>

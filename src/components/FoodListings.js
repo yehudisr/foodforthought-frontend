@@ -14,16 +14,25 @@ import {
   import { useSelector, useDispatch } from 'react-redux'
   import AddListing from './AddListing'
   import { useState, useEffect } from 'react'
+  import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
 
 function FoodListings() {
     const [open, setOpen] = useState(false)
     const giver = useSelector(state => state.giver)
+    const dispatch = useDispatch()
     const foodListings = useSelector(state => state.foodListing)
     console.log(foodListings)
      
     // useDispatch(setListings(giver.food_listings))
     const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
-
+    
+    useEffect(()=>{
+    fetch(`http://localhost:3000/food_givers/${giver.id}`)
+      .then(res => res.json())
+      .then(data => {
+        dispatch(setListings(data.food_listings))
+      })
+    }, [])
 
     const handleOpen = () => {
     setOpen(open => !open)
