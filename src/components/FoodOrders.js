@@ -16,8 +16,12 @@ function FoodOrders() {
     // console.log(foodListingsState)
 
     const foodOrders = useSelector(state => state.foodOrder)
+    console.log(foodOrders)
 
-     const giverListings = foodOrders.map(foodlisting => <Orders key={foodlisting.id} foodlisting={foodlisting} />)
+    const orders = foodOrders.map((order) => <Orders key={order.id} order={order}/>)
+    
+
+    //  const giverListings = foodOrders.map((foodlisting) => <Orders key={foodlisting.id} foodlisting={foodlisting} />)
 
 return(
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden"> 
@@ -33,7 +37,7 @@ return(
             <Th>Order</Th>
             </Tr>
         </Thead>
-        {giverListings}
+        {orders}
         </Table>
  </Box>
 )

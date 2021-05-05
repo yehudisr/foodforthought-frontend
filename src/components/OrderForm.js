@@ -4,7 +4,7 @@ import { useDisclosure } from "@chakra-ui/react"
 import { updateOrder } from '../redux/foodOrderSlice'
 
 
-function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
+function OrderForm({order, handleOpen, onOrdered, ordered}){
     const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
     const [formData, setFormData] = useState({  note: "", amount: ""})
@@ -15,7 +15,7 @@ function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
           [event.target.name]: event.target.value
             })
       }
-    
+  console.log(order, "order")  
 
 function handleSubmit(event){
 
@@ -24,7 +24,7 @@ function handleSubmit(event){
     const newOrder = {
        ...formData,
        food_receiver_id: receiver.id,
-       food_listing_id: foodlisting.id
+       food_listing_id: order.id
      }
  
     fetch(`http://localhost:3000/food_orders`, { 

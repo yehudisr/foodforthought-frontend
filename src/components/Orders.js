@@ -14,7 +14,7 @@ import {
   import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
   import { useSelector, useDispatch } from 'react-redux'
   
-function Orders({foodlisting}) {
+function Orders({order}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
   const [ordered, setOrdered] = useState(false)
@@ -31,14 +31,14 @@ function Orders({foodlisting}) {
 
     <Tbody>
     <Tr>
-      <Td>{foodlisting.name}</Td>
-      <Td>{foodlisting.description}</Td>
-      <Td>{foodlisting.food_giver.location}</Td>
-      <Td isNumeric>{foodlisting.amount}</Td>
-      <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
-      <Td>{!ordered && foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
+      <Td>{order.name}</Td>
+      <Td>{order.description}</Td>
+      <Td>{order.food_giver.location}</Td>
+      <Td isNumeric>{order.amount}</Td>
+      <Td>{order.start_time_display} - {order.end_time_display}</Td>
+      <Td>{!ordered && order.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
       <Td>
-        {!ordered && foodlisting.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
+        { !ordered && order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
       
       {open && ( <Modal
         
@@ -50,7 +50,7 @@ function Orders({foodlisting}) {
             <ModalHeader>Place Your Order</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} foodlisting={foodlisting}/>
+              <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} order={order}/>
                </ModalBody>
               <ModalFooter>
               <Button onClick={onClose}>Cancel</Button>

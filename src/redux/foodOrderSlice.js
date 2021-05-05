@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    entities: [], 
-    status: "idle"
-  }
+// const initialState = {
+//     entities: [], 
+//     status: "idle"
+//   }
 
 const foodOrderSlice = createSlice({
     name: 'foodOrder',
-    initialState,
+    initialState: [],
 
     reducers: {
       setOrders: (state, action) =>{
@@ -16,7 +16,7 @@ const foodOrderSlice = createSlice({
      
       updateOrder: (state, action)=> {
           console.log(state.entities, "state")
-        const order = state.entities.find((order)=> order.id === action.payload.id)
+        const order = state.find((order)=> order.id === action.payload.id)
         // order.amount = action.payload
         // return listing.amount = action.payload
       },
