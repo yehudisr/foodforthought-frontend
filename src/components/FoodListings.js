@@ -15,6 +15,8 @@ import {
   import AddListing from './AddListing'
   import { useState, useEffect } from 'react'
   import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
+  import DownloadLink from "react-download-link"
+  import generatePDF from "./ReportGenerator"
 
 function FoodListings() {
     const [open, setOpen] = useState(false)
@@ -44,9 +46,18 @@ function FoodListings() {
 
     return(
             <Box><Stack direction="row" spacing={6} p={4}>
-                <Button onClick={handleOpen} size="xs" p={4} variant="solid" bgColor="#167572" color="white">
-                <AddIcon w={4} h={4} />
-                </Button></Stack> {open && <AddListing/>}
+                    <Button onClick={handleOpen} size="xs" p={4} variant="solid" bgColor="#167572" color="white">
+                    <AddIcon w={4} h={4} />
+                    </Button>
+                    <Box>
+                      <button
+                      className="btn btn-primary"
+                      onClick={() => generatePDF(giverListings)}
+                    >
+                      Generate monthly report
+                    </button>
+                    </Box>
+                  </Stack> {open && <AddListing/>}
                 <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"> 
                     <Table variant="simple">
                     <Thead > 

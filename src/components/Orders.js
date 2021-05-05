@@ -19,7 +19,7 @@ function Orders({order}) {
   const [open, setOpen] = useState(false)
   const [ordered, setOrdered] = useState(false)
   const foodOrders = useSelector(state => state.foodOrder)
-  console.log(foodOrders)
+  // console.log(foodOrders)
 
       const handleOpen = () => {
         onOpen()

@@ -36,14 +36,14 @@ function handleSubmit(event){
         body: JSON.stringify(newOrder)
         })
         .then (res => res.json())
-        .then(data => {
+        .then(data => {  console.log(data)
             if (data.id === null){
             alert("you already ordered this!")
             } 
             else {
             handleOpen()
             onOrdered(ordered => !ordered)
-            console.log(data) 
+           
         
             // fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
             // .then (res => res.json())
