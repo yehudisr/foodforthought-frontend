@@ -5,23 +5,23 @@ import "jspdf-autotable";
 import { format } from "date-fns";
 
 // define a generatePDF function that accepts a tickets argument
-const generatePDF = giverListings => {
-    console.log(giverListings)
+const generatePDF = foodListings => {
+    console.log(foodListings)
   // initialize jsPDF
   const doc = new jsPDF();
 
   // define the columns we want and their titles
-  const tableColumn = ["Id", "Name", "Desription", "Amount"];
+  const tableColumn = ["Id", "Name", "Description", "Amount"];
   // define an empty array of rows
   const tableRows = [];
 
   // for each ticket pass all its data into an array
-  giverListings.forEach(listing => {
+  foodListings.forEach(listing => {
     const listingData = [
-      listing.props.id,
-      listing.props.name,
-      listing.props.description,
-      listing.props.amount,
+      listing.id,
+      listing.name,
+      listing.description,
+      listing.amount,
       // called date-fns to format the date on the ticket
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
     ];

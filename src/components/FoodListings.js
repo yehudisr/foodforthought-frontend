@@ -43,7 +43,7 @@ function FoodListings() {
   const handleClose = () => {
     setOpen(false)
   }
-
+ console.log(foodListings)
     return(
             <Box><Stack direction="row" spacing={6} p={4}>
                     <Button onClick={handleOpen} size="xs" p={4} variant="solid" bgColor="#167572" color="white">
@@ -52,7 +52,7 @@ function FoodListings() {
                     <Box>
                       <button
                       className="btn btn-primary"
-                      onClick={() => generatePDF(giverListings)}
+                      onClick={() => generatePDF(foodListings)}
                     >
                       Generate monthly report
                     </button>
