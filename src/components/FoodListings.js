@@ -1,24 +1,14 @@
-import FoodItem from './FoodItem';
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    Box, Button, Spacer, Stack
-  } from "@chakra-ui/react"
-  import { AddIcon } from '@chakra-ui/icons'
-  import { useSelector, useDispatch } from 'react-redux'
-  import AddListing from './AddListing'
-  import { useState, useEffect } from 'react'
-  import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
-  import DownloadLink from "react-download-link"
-  import generatePDF from "./ReportGenerator"
-  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
-  import { useDisclosure } from "@chakra-ui/react"
+import FoodItem from './FoodItem'
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Box, Button, Spacer, Stack } from "@chakra-ui/react"
+import { AddIcon } from '@chakra-ui/icons'
+import { useSelector, useDispatch } from 'react-redux'
+import AddListing from './AddListing'
+import { useState, useEffect } from 'react'
+import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
+import DownloadLink from "react-download-link"
+import generatePDF from "./ReportGenerator"
+import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
+import { useDisclosure } from "@chakra-ui/react"
 
 function FoodListings() {
     const [open, setOpen] = useState(false)
@@ -40,11 +30,11 @@ function FoodListings() {
     const handleOpen = () => {
       onOpen()
     setOpen(open => !open)
-  }
+    }
 
-  const handleClose = () => {
+   const handleClose = () => {
     setOpen(false)
-  }
+   }
 
     return(
             <Box><Stack direction="row" spacing={6} p={4}>
@@ -68,17 +58,12 @@ function FoodListings() {
                                     <ModalHeader>Add Your Listing</ModalHeader>
                                     <ModalCloseButton />
                                     <ModalBody pb={6}><AddListing handleOpen={handleOpen}/>
-                                      {/* <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} order={order}/> */}
                                       </ModalBody>
                                       <ModalFooter>
                                       <Button onClick={onClose}>Cancel</Button>
                                     </ModalFooter>
                                   </ModalContent>
                                 </Modal>
-                  
-                  
-                  
-                  
                   
                   }
                 <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"> 

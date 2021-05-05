@@ -1,8 +1,8 @@
-import { Route, Switch, NavLink, Redirect, useHistory } from 'react-router-dom';
-import { useState } from 'react';
-import { Button, ButtonGroup, Box, Flex, Spacer } from "@chakra-ui/react";
-import { useDispatch } from 'react-redux';
-import {setGiver} from '../redux/giverSlice';
+import { Route, Switch, NavLink, Redirect, useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import { Button, ButtonGroup, Box, Flex, Spacer } from "@chakra-ui/react"
+import { useDispatch } from 'react-redux'
+import {setGiver} from '../redux/giverSlice'
 import {setListings} from '../redux/foodListingSlice'
 import {setReceiver} from '../redux/receiverSlice'
 
@@ -66,6 +66,6 @@ function Navbar() {
   }
     
   
-  export default Navbar;
+  export default Navbar
   
   

@@ -1,9 +1,9 @@
 
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
-import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
+import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react"
 import { setListings } from '../redux/foodListingSlice'
 
 
@@ -18,11 +18,11 @@ function GiverLogin() {
    
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false)
   }
     const [formData, setFormData] = useState({
       password: "",
@@ -41,7 +41,7 @@ function GiverLogin() {
         .then(res => res.json())
         .then((data) => {
           if (data.errors) {
-            setErrors(data.errors);
+            setErrors(data.errors)
             
           } else {
             
@@ -53,7 +53,7 @@ function GiverLogin() {
               localStorage.setItem('giverFoodListings', JSON.stringify(data.food_listings))
             }
     
-            history.push(`/giver/${data.id}`);
+            history.push(`/giver/${data.id}`)
           }
         })
         
@@ -61,9 +61,9 @@ function GiverLogin() {
     }
 
     function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-  console.log(errors.length > 0)
+
 
     return (
         <Center  h="300px" >
@@ -73,11 +73,13 @@ function GiverLogin() {
                 <form onSubmit={handleSubmit}>
                     
 
-                    <Box p={4}> <FormControl   isRequired>
+                    <Box p={4}> 
+                      <FormControl   isRequired>
                         <FormLabel>Email</FormLabel>
                         <Input id="email" name="email" value={formData.email}
                          onChange={handleChange} placeholder="Email" />
-                        </FormControl></Box><Spacer/>
+                        </FormControl></Box>
+                         <Spacer/>
 
                         <Box p={4}><InputGroup size="md"> 
                         <FormControl isRequired>
@@ -92,19 +94,19 @@ function GiverLogin() {
                         placeholder="Enter password"
                         />
                          
-                        </FormControl>
+                      </FormControl>
                     </InputGroup>
                     </Box>
                          <Box> 
                              <Checkbox value="remember" color="primary" onChange={()=> setRememberMe(!rememberMe)}/>Remember Me
-             </Box>
+                         </Box>
                 
-                    <Button type="submit" value="login" >Login</Button> 
+                          <Button type="submit" value="login" >Login</Button> 
                     <Box><Link href="#" variant="body2" onClick={handleOpen}>
-                  {"Don't have an account? Sign Up"}
-                 
-                </Link> </Box>
-                </form>  
+                              {"Don't have an account? Sign Up"}
+                         </Link> 
+                  </Box>
+             </form>  
 
               
           

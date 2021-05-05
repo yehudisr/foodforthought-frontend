@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
@@ -17,11 +17,11 @@ function ReceiverLogin() {
   
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
+    setOpen(false)
   }
     const [formData, setFormData] = useState({
       password: "",
@@ -40,7 +40,7 @@ function ReceiverLogin() {
         .then(res => res.json())
         .then((data) => {
           if (data.errors) {
-            setErrors(data.errors);
+            setErrors(data.errors)
             
           } else {
                dispatch(setReceiver(data))
@@ -49,7 +49,7 @@ function ReceiverLogin() {
               localStorage.setItem('currentReceiver', JSON.stringify(data))
             }
     
-            history.push(`/listings`);
+            history.push(`/listings`)
           }
         })
         
@@ -57,9 +57,9 @@ function ReceiverLogin() {
     }
 
     function handleChange(e) {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-  console.log(errors.length > 0)
+  
 
     return (
         <Center  h="300px" >

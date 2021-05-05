@@ -18,14 +18,14 @@ function OrderForm({order, handleOpen, onOrdered, ordered}){
       }
  
       function sendEmail(event) {
-        event.preventDefault();
+        event.preventDefault()
     
         emailjs.sendForm('service_5hzqjk1', 'template_y9gktxi', event.target, 'user_FdO4oCpnWDd6vSUUtx0vx')
           .then((result) => {
               console.log(result.text);
           }, (error) => {
               console.log(error.text);
-          });
+          })
       }
 
 function handleSubmit(event){

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import FoodOrders from './FoodOrders';
-import { Box, Spacer, Text } from "@chakra-ui/react";
+import { useState, useEffect } from 'react'
+import FoodOrders from './FoodOrders'
+import { Box, Spacer, Text } from "@chakra-ui/react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setOrders } from '../redux/foodOrderSlice'
 

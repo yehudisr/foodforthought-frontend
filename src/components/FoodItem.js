@@ -1,15 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux'
 import { removeListing } from '../redux/foodListingSlice'
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption, Button, Badge
-  } from "@chakra-ui/react"
+import {Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Button, Badge } from "@chakra-ui/react"
 
   
 function FoodItem({foodlisting}) {
@@ -34,20 +25,20 @@ function FoodItem({foodlisting}) {
      console.log(Date.parse(foodlisting.start_time))
 
     return(
-       <>
+      <>
 
-    <Tbody>
-    <Tr>
-      <Td>{foodlisting.name}</Td>
-      <Td>{foodlisting.description}</Td>
-      <Td isNumeric>{foodlisting.amount}</Td>
-      <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
-      <Td>{foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
-      <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
-    </Tr>
-   </Tbody>
+        <Tbody>
+        <Tr>
+          <Td>{foodlisting.name}</Td>
+          <Td>{foodlisting.description}</Td>
+          <Td isNumeric>{foodlisting.amount}</Td>
+          <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
+          <Td>{foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
+          <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
+        </Tr>
+      </Tbody>
               
-            </>  
+    </>  
 
     )
         

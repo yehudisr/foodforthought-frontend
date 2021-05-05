@@ -1,4 +1,4 @@
-import Orders from './Orders';
+import Orders from './Orders'
 import {
     Table,
     Thead,
@@ -13,15 +13,11 @@ import {
   import { useSelector, useDispatch } from 'react-redux'
 
 function FoodOrders() {
-    // console.log(foodListingsState)
-
-    const foodOrders = useSelector(state => state.foodOrder)
-    console.log(foodOrders)
-
-    const orders = foodOrders.map((order) => <Orders key={order.id} order={order}/>)
     
 
-    //  const giverListings = foodOrders.map((foodlisting) => <Orders key={foodlisting.id} foodlisting={foodlisting} />)
+    const foodOrders = useSelector(state => state.foodOrder)
+    const orders = foodOrders.map((order) => <Orders key={order.id} order={order}/>)
+    
 
 return(
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden"> 
