@@ -8,7 +8,7 @@ import {
     Tr,
     Th,
     Td,
-    TableCaption, Button
+    TableCaption, Button, Badge
   } from "@chakra-ui/react"
 
   
@@ -25,7 +25,6 @@ function FoodItem({foodlisting}) {
         .then (resp => resp.json())
         .then(foodlisting => {
           dispatch(removeListing(foodlisting))
-          
         } )
         
       }
@@ -43,7 +42,7 @@ function FoodItem({foodlisting}) {
       <Td>{foodlisting.description}</Td>
       <Td isNumeric>{foodlisting.amount}</Td>
       <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
-      <Td>Active</Td>
+      <Td>{foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
       <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
     </Tr>
    </Tbody>

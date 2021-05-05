@@ -16,7 +16,6 @@ function GiverLogin() {
     const [open, setOpen] = useState(false);
     const giver = useSelector(state => state.giver)
    
-  
 
   const handleOpen = () => {
     setOpen(true);
@@ -45,7 +44,7 @@ function GiverLogin() {
             setErrors(data.errors);
             
           } else {
-            console.log(data.food_listings, "FOODLISTING")
+            
                dispatch(setGiver(data))
                dispatch(setListings(data.food_listings))
            

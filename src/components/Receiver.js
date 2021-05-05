@@ -2,28 +2,31 @@ import { useState, useEffect } from 'react';
 import FoodOrders from './FoodOrders';
 import { Box, Spacer, Text } from "@chakra-ui/react";
 import { useSelector, useDispatch } from 'react-redux'
+import { setOrders } from '../redux/foodOrderSlice'
 
 function Receiver(){
 
     const [foodListings, setFoodListings] = useState([])
     const receiver = useSelector(state => state.receiver)
-    // const getUser = localStorage.getItem('user')
-    // const currentUser = JSON.parse(getUser)
+    const foodOrders = useSelector(state => state.foodOrder)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         fetch(`http://localhost:3000/food_listings`)
             .then(res => res.json())
-            .then(setFoodListings)
+            .then(data => { console.log(data)
+                dispatch(setOrders(data))
+            })
     }, [])
 
-    console.log(foodListings)
+   console.log(foodOrders)
 
     return(
         <Box p="8">
         <Box padding="4">
             <Text fontSize="4xl">Hello, {receiver.name} </Text>
              </Box>
-        <FoodOrders foodListings={foodListings}/>
+        {foodOrders ? <FoodOrders/> : null}
         </Box>
     )
 }

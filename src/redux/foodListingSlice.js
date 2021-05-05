@@ -24,6 +24,9 @@ const foodListingSlice = createSlice({
       },
       updateListing: (state, action)=> {
         const listing = state.find(listing => listing.id === action.payload.id)
+        listing.amount = action.payload
+        console.log(listing, "LISTING")
+        // return listing.amount = action.payload
       },
       // updateAmount: (state, action) => {
 

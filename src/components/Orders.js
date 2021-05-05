@@ -12,11 +12,14 @@ import {
   import OrderForm from './OrderForm'
   import { useDisclosure } from "@chakra-ui/react"
   import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
+  import { useSelector, useDispatch } from 'react-redux'
   
 function Orders({foodlisting}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
   const [ordered, setOrdered] = useState(false)
+  const foodOrders = useSelector(state => state.foodOrder)
+  console.log(foodOrders)
 
       const handleOpen = () => {
         onOpen()
@@ -35,7 +38,7 @@ function Orders({foodlisting}) {
       <Td>{foodlisting.start_time_display} - {foodlisting.end_time_display}</Td>
       <Td>{!ordered && foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
       <Td>
-        {!ordered && foodlisting.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null}
+        {!ordered && foodlisting.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
       
       {open && ( <Modal
         

@@ -10,11 +10,14 @@ import {
     TableCaption,
     Box
   } from "@chakra-ui/react"
+  import { useSelector, useDispatch } from 'react-redux'
 
-function FoodOrders({foodListings}) {
-    console.log(foodListings)
+function FoodOrders() {
+    // console.log(foodListingsState)
 
-    const giverListings = foodListings.map(foodlisting => <Orders key={foodlisting.name} foodlisting={foodlisting} />)
+    const foodOrders = useSelector(state => state.foodOrder)
+
+     const giverListings = foodOrders.map(foodlisting => <Orders key={foodlisting.id} foodlisting={foodlisting} />)
 
 return(
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden"> 

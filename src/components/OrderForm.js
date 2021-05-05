@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
 import { useDisclosure } from "@chakra-ui/react"
-import { updateListing } from '../redux/foodListingSlice'
+import { updateOrder } from '../redux/foodOrderSlice'
 
 
 function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
@@ -13,12 +12,12 @@ function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
     function handleChange(event){
         setFormData({
           ...formData, 
-          [event.target.name]: event.target.value,
+          [event.target.name]: event.target.value
             })
       }
     
 
-    function handleSubmit(event){
+function handleSubmit(event){
 
     event.preventDefault()
     
@@ -27,8 +26,7 @@ function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
        food_receiver_id: receiver.id,
        food_listing_id: foodlisting.id
      }
-
-        
+ 
     fetch(`http://localhost:3000/food_orders`, { 
         method: 'POST',
         headers: {
@@ -41,17 +39,23 @@ function OrderForm({foodlisting, handleOpen, onOrdered, ordered}){
         .then(data => {
             if (data.id === null){
             alert("you already ordered this!")
-            } else
+            } 
+            else {
             handleOpen()
             onOrdered(ordered => !ordered)
-            console.log(data)
-
-            fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
-            
-                .then (res => res.json())
-                .then(dispatch(updateListing(data)))
-
+            console.log(data) 
+        
+            // fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
+            // .then (res => res.json())
+            // .then (listing => {
+            //     dispatch(updateOrder(listing.amount))
+            // })
+        
+        }
+        
         })
+  
+       
         setFormData({  note: "", amount: ""})
 }
     
