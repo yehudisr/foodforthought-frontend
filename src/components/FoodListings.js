@@ -23,9 +23,7 @@ function FoodListings() {
     const giver = useSelector(state => state.giver)
     const dispatch = useDispatch()
     const foodListings = useSelector(state => state.foodListing)
-    console.log(foodListings)
-     
-    // useDispatch(setListings(giver.food_listings))
+
     const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
     
     useEffect(()=>{
@@ -43,19 +41,18 @@ function FoodListings() {
   const handleClose = () => {
     setOpen(false)
   }
- console.log(foodListings)
+
     return(
             <Box><Stack direction="row" spacing={6} p={4}>
                     <Button onClick={handleOpen} size="xs" p={4} variant="solid" bgColor="#167572" color="white">
                     <AddIcon w={4} h={4} />
                     </Button>
                     <Box>
-                      <button
-                      className="btn btn-primary"
+                      <Button bgColor="#167572" color="white"
                       onClick={() => generatePDF(foodListings)}
                     >
-                      Generate monthly report
-                    </button>
+                      Generate Report
+                    </Button>
                     </Box>
                   </Stack> {open && <AddListing/>}
                 <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"> 

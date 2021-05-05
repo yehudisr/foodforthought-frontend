@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useDisclosure } from "@chakra-ui/react"
 import { updateOrder } from '../redux/foodOrderSlice'
+import emailjs from 'emailjs-com'
 
 
 function OrderForm({order, handleOpen, onOrdered, ordered}){
     const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
-    const [formData, setFormData] = useState({  note: "", amount: ""})
+    const [formData, setFormData] = useState({  note: "", amount: "", email: ""})
 
     function handleChange(event){
         setFormData({
@@ -15,7 +16,17 @@ function OrderForm({order, handleOpen, onOrdered, ordered}){
           [event.target.name]: event.target.value
             })
       }
-  console.log(order, "order")  
+ 
+      function sendEmail(event) {
+        event.preventDefault();
+    
+        emailjs.sendForm('service_5hzqjk1', 'template_y9gktxi', event.target, 'user_FdO4oCpnWDd6vSUUtx0vx')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+      }
 
 function handleSubmit(event){
 
@@ -50,13 +61,12 @@ function handleSubmit(event){
             // .then (listing => {
             //     dispatch(updateOrder(listing.amount))
             // })
-        
-        }
+             }
         
         })
-  
-       
-        setFormData({  note: "", amount: ""})
+        setFormData({  note: "", amount: "", email:""})
+        sendEmail(event)
+
 }
     
     
@@ -69,6 +79,8 @@ function handleSubmit(event){
                 <input name="note" placeholder="Note" 
                 value={formData.description}
                 onChange={handleChange}/>
+                <input name="email" type="email" placeholder="email" value={formData.email}
+                onChange={handleChange} />
           
                 <input type="submit" value="Place Order" />
                 </form>

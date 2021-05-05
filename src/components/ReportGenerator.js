@@ -1,16 +1,14 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-// Date Fns is used to format the dates we receive
-// from our API call
 import { format } from "date-fns";
 
-// define a generatePDF function that accepts a tickets argument
+
 const generatePDF = foodListings => {
     console.log(foodListings)
-  // initialize jsPDF
+ 
   const doc = new jsPDF();
 
-  // define the columns we want and their titles
+
   const tableColumn = ["Id", "Name", "Description", "Amount"];
   // define an empty array of rows
   const tableRows = [];
@@ -22,15 +20,15 @@ const generatePDF = foodListings => {
       listing.name,
       listing.description,
       listing.amount,
-      // called date-fns to format the date on the ticket
+    
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
     ];
-    // push each tickcet's info into a row
+  
     tableRows.push(listingData);
   });
 
 
-//   // startY is basically margin-top
+
   doc.autoTable(tableColumn, tableRows, { startY: 20 });
 //   const date = Date().split(" ");
 //   // we use a date string to generate our filename.
