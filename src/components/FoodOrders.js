@@ -28,8 +28,9 @@ return(
         <Table variant="simple">
         <Thead > 
             <Tr backgroundColor='#EEF0EB'>
-            <Th>Name</Th>
+            <Th>Item Name</Th>
             <Th>Description</Th>
+            <Th>Creator</Th>
             <Th>Location</Th>
             <Th isNumeric>Amount</Th>
             <Th>Times</Th>

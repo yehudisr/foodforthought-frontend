@@ -19,7 +19,7 @@ function Orders({order}) {
   const [open, setOpen] = useState(false)
   const [ordered, setOrdered] = useState(false)
   const foodOrders = useSelector(state => state.foodOrder)
-  // console.log(foodOrders)
+ 
 
       const handleOpen = () => {
         onOpen()
@@ -33,6 +33,7 @@ function Orders({order}) {
     <Tr>
       <Td>{order.name}</Td>
       <Td>{order.description}</Td>
+      <Td>{order.food_giver.name}</Td>
       <Td>{order.food_giver.location}</Td>
       <Td isNumeric>{order.amount}</Td>
       <Td>{order.start_time_display} - {order.end_time_display}</Td>

@@ -5,7 +5,7 @@ import { useState, useRef } from 'react'
 import { useDisclosure } from "@chakra-ui/react"
 import { addListing } from '../redux/foodListingSlice'
 
-function AddListing(){
+function AddListing({handleOpen}){
    const giver = useSelector(state => state.giver)
    const { isOpen, onOpen, onClose } = useDisclosure()
    const initialRef = useRef()
@@ -48,21 +48,13 @@ function AddListing(){
       .then((newListing=>{ 
           dispatch(addListing(newListing))
         }))
+        handleOpen()
         setFormData({ name: "", description: "", amount: "", start_time: "", end_time:""})
     }
  console.log(formData)
     return(
         <> 
-        {/* <Modal
-          initialFocusRef={initialRef}
-          isOpen={isOpen}
-          onClose={onClose}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Add a food listing</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}> */}
+       
                 <form onSubmit={handleSubmit} >
                 <input name="name" placeholder="Name" 
                 value={formData.name}
@@ -86,16 +78,7 @@ function AddListing(){
           
                 <input type="submit" value="Add your listing" />
                 </form>
-            {/* </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
-                Save
-              </Button>
-              <Button onClick={onClose}>Cancel</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal> */}
+            
       </>
     )
 }

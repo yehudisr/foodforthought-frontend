@@ -55,7 +55,6 @@ function handleSubmit(event){
             handleOpen()
             onOrdered(ordered => !ordered)
            
-        
             // fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
             // .then (res => res.json())
             // .then (listing => {
@@ -81,7 +80,6 @@ function handleSubmit(event){
                 onChange={handleChange}/>
                 <input name="email" type="email" placeholder="email" value={formData.email}
                 onChange={handleChange} />
-          
                 <input type="submit" value="Place Order" />
                 </form>
            

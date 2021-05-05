@@ -17,12 +17,15 @@ import {
   import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
   import DownloadLink from "react-download-link"
   import generatePDF from "./ReportGenerator"
+  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
+  import { useDisclosure } from "@chakra-ui/react"
 
 function FoodListings() {
     const [open, setOpen] = useState(false)
     const giver = useSelector(state => state.giver)
     const dispatch = useDispatch()
     const foodListings = useSelector(state => state.foodListing)
+    const { isOpen, onOpen, onClose } = useDisclosure() 
 
     const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
     
@@ -35,6 +38,7 @@ function FoodListings() {
     }, [])
 
     const handleOpen = () => {
+      onOpen()
     setOpen(open => !open)
   }
 
@@ -54,7 +58,29 @@ function FoodListings() {
                       Generate Report
                     </Button>
                     </Box>
-                  </Stack> {open && <AddListing/>}
+                  </Stack> {open && <Modal
+        
+                                  isOpen={isOpen}
+                                  onClose={onClose}
+                                >
+                                  <ModalOverlay />
+                                  <ModalContent>
+                                    <ModalHeader>Add Your Listing</ModalHeader>
+                                    <ModalCloseButton />
+                                    <ModalBody pb={6}><AddListing handleOpen={handleOpen}/>
+                                      {/* <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} order={order}/> */}
+                                      </ModalBody>
+                                      <ModalFooter>
+                                      <Button onClick={onClose}>Cancel</Button>
+                                    </ModalFooter>
+                                  </ModalContent>
+                                </Modal>
+                  
+                  
+                  
+                  
+                  
+                  }
                 <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"> 
                     <Table variant="simple">
                     <Thead > 
