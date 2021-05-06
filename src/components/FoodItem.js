@@ -2,10 +2,16 @@ import {useSelector, useDispatch} from 'react-redux'
 import { removeListing } from '../redux/foodListingSlice'
 import {Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Button, Badge } from "@chakra-ui/react"
 
+
   
 function FoodItem({foodlisting}) {
 
-    console.log(foodlisting)
+  console.log(foodlisting.start_time, "from backend")
+  const backend = foodlisting.start_time
+
+  const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString()
+  const displayEnd = new Date(`${foodlisting.end_time}`).toLocaleString()
+  
 
     const dispatch= useDispatch()
 
@@ -20,10 +26,6 @@ function FoodItem({foodlisting}) {
         
       }
 
-     const start =  foodlisting.start_time
-
-     console.log(Date.parse(foodlisting.start_time))
-
     return(
       <>
 
@@ -32,7 +34,7 @@ function FoodItem({foodlisting}) {
           <Td>{foodlisting.name}</Td>
           <Td>{foodlisting.description}</Td>
           <Td isNumeric>{foodlisting.amount}</Td>
-          <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
+          <Td>{displayStart} - {displayEnd}</Td>
           <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
           <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
         </Tr>

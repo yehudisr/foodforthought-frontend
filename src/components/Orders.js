@@ -17,7 +17,6 @@ import {
 function Orders({order}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
-  const [ordered, setOrdered] = useState(false)
   const foodOrders = useSelector(state => state.foodOrder)
  
 
@@ -51,7 +50,7 @@ function Orders({order}) {
             <ModalHeader bgColor="#5E8074" color="white">Place Your Order</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} order={order}/>
+              <OrderForm handleOpen={handleOpen} order={order}/>
                </ModalBody>
               <ModalFooter>
               <Button onClick={onClose}>Cancel</Button>

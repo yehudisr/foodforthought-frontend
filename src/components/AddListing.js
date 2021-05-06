@@ -11,8 +11,9 @@ function AddListing({handleOpen}){
    const initialRef = useRef()
    const dispatch = useDispatch()
    const [date, setDate] = useState(new Date())
-   const [formData, setFormData] = useState({ name: "", description: "", amount: "", start_time: date, end_time:""})
-     console.log(date)
+   const [endTime, setEndTime] = useState(new Date())
+   const [formData, setFormData] = useState({ name: "", description: "", amount: "", start_time: date, end_time: endTime})
+     
 
    function handleChange(event){
      setFormData({
@@ -28,7 +29,13 @@ function AddListing({handleOpen}){
       start_time: value,
         })
    }
-   console.log(formData)
+   
+   function timeChange(value){
+    setFormData({
+      ...formData, 
+      end_time: value,
+        })
+   }
 
    function handleSubmit(event){
      event.preventDefault()
@@ -70,11 +77,11 @@ function AddListing({handleOpen}){
                   onChange={onChange}
                   value={date}
                 />
-                {/* <DateTimePicker
+                <DateTimePicker
                    name="end_time"
-                  onChange={onChange}
-                  value={value}
-                /> */}
+                  onChange={timeChange}
+                  value={endTime}
+                />
           
                 <input type="submit" value="Add your listing" />
                 </form>

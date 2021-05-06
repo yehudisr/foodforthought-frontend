@@ -65,7 +65,9 @@ export default function Hero({
         </Heading>
         {/* <Link to={ctaLink}> */}
           <Button
-            variantColor="primary"
+            bgColor="#DE9A2D"
+            color="#EEF0EB"           
+            variantColor="#DE9A2D"
             borderRadius="8px"
             py="4"
             px="4"
@@ -78,6 +80,9 @@ export default function Hero({
         {/* </Link> */}
         {/* <Link to={ctaLink}> */}
           <Button
+          
+            bgColor="#DE9A2D"  
+            color="#EEF0EB"
             variantColor="primary"
             borderRadius="8px"
             py="4"
@@ -89,15 +94,15 @@ export default function Hero({
             Order Food
           </Button> {displayOrder && <ReceiverLogin/>}
           {/* </Link> */}
-        <Text
+        {/* <Text
           fontSize="xs"
           mt={2}
           textAlign="center"
           color="primary.800"
           opacity="0.6"
         >
-          {/* No credit card required. */}
-        </Text>
+          No credit card required.
+        </Text> */}
       </Stack>
       <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
         <Image src={image} size="100%" rounded="1rem" shadow="2xl" />

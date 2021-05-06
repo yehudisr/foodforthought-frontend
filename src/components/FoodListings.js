@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
 import DownloadLink from "react-download-link"
 import generatePDF from "./ReportGenerator"
-import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
+import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Tooltip} from "@chakra-ui/react"
 import { useDisclosure } from "@chakra-ui/react"
 
 function FoodListings() {
@@ -38,15 +38,19 @@ function FoodListings() {
 
     return(
             <Box><Stack direction="row" spacing={6} p={4}>
+                  <Tooltip label="Add Listing" placement="top-end"    aria-label="A tooltip">
                     <Button onClick={handleOpen} size="xs" p={4} variant="solid" bgColor="#167572" color="white">
                     <AddIcon w={4} h={4} />
                     </Button>
+                    </Tooltip>
                     <Box>
+                    <Tooltip label="Download Report" placement="top-end" aria-label="A tooltip">
                       <Button bgColor="#167572" color="white"
                       onClick={() => generatePDF(foodListings)}
                     >
                       Generate Report
                     </Button>
+                    </Tooltip>
                     </Box>
                   </Stack> {open && <Modal
         
@@ -66,7 +70,7 @@ function FoodListings() {
                                 </Modal>
                   
                   }
-                <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"  boxShadow="lg"> 
                     <Table variant="simple">
                     <Thead > 
                         <Tr backgroundColor='#EEF0EB'>

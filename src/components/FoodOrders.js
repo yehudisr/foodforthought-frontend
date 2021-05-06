@@ -20,7 +20,7 @@ function FoodOrders() {
     
 
 return(
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="lg"> 
         <Table variant="simple">
         <Thead > 
             <Tr backgroundColor='#EEF0EB'>

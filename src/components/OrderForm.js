@@ -1,15 +1,24 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useDisclosure } from "@chakra-ui/react"
-import { updateOrder, setOrders } from '../redux/foodOrderSlice'
+import { updateOrder } from '../redux/foodOrderSlice'
 import emailjs from 'emailjs-com'
-import { FormControl, FormLabel, Input, Button} from "@chakra-ui/react"
+import { FormControl, FormLabel, Input, Button, AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,} from "@chakra-ui/react"
 
 
-function OrderForm({order, handleOpen, onOrdered, ordered}){
+function OrderForm({order, handleOpen}){
     const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
     const [formData, setFormData] = useState({  note: "", amount: "1", email: ""})
+    const [isOpen, setIsOpen] = useState(false)
+  const onClose = () => setIsOpen(false)
+  // const cancelRef = .useRef()
+
 
     function handleChange(event){
         setFormData({
@@ -54,19 +63,14 @@ function handleSubmit(event){
             } 
             else {
             handleOpen()
-            onOrdered(ordered => !ordered)
             dispatch(updateOrder(data))
-           
-            // fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
-            // .then (res => res.json())
-            // .then (listing => {
-            //     dispatch(updateOrder(listing.amount))
-            // })
+      
              }
         
         })
         setFormData({  note: "", amount: "1", email:""})
         sendEmail(event)
+        setIsOpen(true)
 
 }
     
@@ -82,8 +86,35 @@ function handleSubmit(event){
                 onChange={handleChange}/>
                 <Input name="email" type="email" placeholder="email" value={formData.email}
                 onChange={handleChange} />
-                <input type="submit" value="Place Order" />
+                {/* <Button onSubmit={handleSubmit} >Place Order</Button> */}
+                <input type="submit" value="Place Order"/>
                 </form>
+                <AlertDialog
+                  isOpen={isOpen}
+                  // leastDestructiveRef={cancelRef}
+                  onClose={onClose}
+                >
+                  <AlertDialogOverlay>
+                    <AlertDialogContent>
+                      <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                        Delete Customer
+                      </AlertDialogHeader>
+
+                      <AlertDialogBody>
+                        Are you sure? You can't undo this action afterwards.
+                      </AlertDialogBody>
+
+                      <AlertDialogFooter>
+                        {/* <Button ref={cancelRef} onClick={onClose}>
+                          Cancel
+                        </Button>
+                        <Button colorScheme="red" onClick={onClose} ml={3}>
+                          Delete
+                        </Button> */}
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialogOverlay>
+                </AlertDialog>
            
       </>
     )

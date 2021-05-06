@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const initialState = {
-//     entities: [], 
-//     status: "idle"
-//   }
-
 const foodOrderSlice = createSlice({
     name: 'foodOrder',
     initialState: [],
@@ -15,7 +10,6 @@ const foodOrderSlice = createSlice({
       },
      
       updateOrder: (state, action)=> {
-          console.log(state.entities, "state")
         const orderArr = state.map((order)=> {
         if (order.id === action.payload.id){
           return action.payload
