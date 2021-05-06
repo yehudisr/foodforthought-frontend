@@ -102,10 +102,10 @@ function GiverLogin() {
                          </Box>
                 
                           <Button type="submit" value="login" >Login</Button> 
-                    <Box><Link href="#" variant="body2" onClick={handleOpen}>
+                    {/* <Box><Link href="#" variant="body2" onClick={handleOpen}>
                               {"Don't have an account? Sign Up"}
                          </Link> 
-                  </Box>
+                  </Box> */}
              </form>  
 
               
@@ -114,11 +114,8 @@ function GiverLogin() {
           {/* <Modal
                 open={open}
                 onClose={handleClose}
-                className={classes.modal}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
               >
-               {<div className={classes.modal_body}>
+               {<div>
                 <Signup/>
                  </div>}
               </Modal> */}

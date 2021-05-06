@@ -55,7 +55,7 @@ function FoodListings() {
                                 >
                                   <ModalOverlay />
                                   <ModalContent>
-                                    <ModalHeader>Add Your Listing</ModalHeader>
+                                    <ModalHeader bgColor="#5E8074" color="white">Add Your Listing</ModalHeader>
                                     <ModalCloseButton />
                                     <ModalBody pb={6}><AddListing handleOpen={handleOpen}/>
                                       </ModalBody>

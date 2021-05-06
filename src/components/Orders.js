@@ -37,7 +37,7 @@ function Orders({order}) {
       <Td>{order.food_giver.location}</Td>
       <Td isNumeric>{order.amount}</Td>
       <Td>{order.start_time_display} - {order.end_time_display}</Td>
-      <Td>{!ordered && order.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
+      <Td>{!ordered && order.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
       <Td>
         { !ordered && order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
       
@@ -48,7 +48,7 @@ function Orders({order}) {
         >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Place Your Order</ModalHeader>
+            <ModalHeader bgColor="#5E8074" color="white">Place Your Order</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
               <OrderForm onOrdered={setOrdered} ordered={ordered} handleOpen={handleOpen} order={order}/>

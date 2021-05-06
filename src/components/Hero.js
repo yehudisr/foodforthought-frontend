@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import { Box, Button, Flex, Image, Heading, Stack, Text, Spacer } from "@chakra-ui/react"
+import GiverLogin from './GiverLogin'
+import { useState } from 'react'
+import ReceiverLogin from './ReceiverLogin'
 
 export default function Hero({
   title,
@@ -11,6 +14,19 @@ export default function Hero({
   ctaText,
   ...rest
 }) {
+
+
+  const [displayGiver, setDisplayGiver] = useState(false)
+  const [displayOrder, setDisplayOrder] = useState(false)
+ 
+  function toggleGiver(){
+     setDisplayGiver(displayGiver => !displayGiver)
+ }
+ 
+ function toggleOrder(){
+     setDisplayOrder(displayOrder => !displayOrder)
+ }
+
   return (
     <Flex
       align="center"
@@ -47,7 +63,7 @@ export default function Hero({
         >
           {subtitle}
         </Heading>
-        <Link to={ctaLink}>
+        {/* <Link to={ctaLink}> */}
           <Button
             variantColor="primary"
             borderRadius="8px"
@@ -55,12 +71,12 @@ export default function Hero({
             px="4"
             lineHeight="1"
             size="md"
-            // rightIcon=">>"
+            onClick={toggleGiver}
           >
             {ctaText}
-          </Button>
-        </Link>
-        <Link to={ctaLink}>
+          </Button> {displayGiver && <GiverLogin/>}
+        {/* </Link> */}
+        {/* <Link to={ctaLink}> */}
           <Button
             variantColor="primary"
             borderRadius="8px"
@@ -68,11 +84,11 @@ export default function Hero({
             px="4"
             lineHeight="1"
             size="md"
-            // rightIcon=">>"
+            onClick={toggleOrder}
           >
             Order Food
-          </Button>
-          </Link>
+          </Button> {displayOrder && <ReceiverLogin/>}
+          {/* </Link> */}
         <Text
           fontSize="xs"
           mt={2}
@@ -96,13 +112,4 @@ Hero.propTypes = {
   image: PropTypes.string,
   ctaText: PropTypes.string,
   ctaLink: PropTypes.string,
-}
-
-Hero.defaultProps = {
-  title: "React landing page with Chakra UI",
-  subtitle:
-    "This is the subheader section where you describe the basic benefits of your product",
-  image: "https://source.unsplash.com/collection/404339/800x600",
-  ctaText: "Create your account now",
-  ctaLink: "/signup",
 }

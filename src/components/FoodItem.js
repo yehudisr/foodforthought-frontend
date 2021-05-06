@@ -33,7 +33,7 @@ function FoodItem({foodlisting}) {
           <Td>{foodlisting.description}</Td>
           <Td isNumeric>{foodlisting.amount}</Td>
           <Td>{foodlisting.start_time} - {foodlisting.end_time}</Td>
-          <Td>{foodlisting.amount > 0 ? <Badge colorScheme="green">Available</Badge> : <Badge colorScheme="red">Taken</Badge>}</Td>
+          <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
           <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
         </Tr>
       </Tbody>

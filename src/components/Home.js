@@ -10,16 +10,16 @@ import LandingLayout from "./LandingLayout";
 
 export default function Home() {
 
- const [displayGiver, setDisplayGiver] = useState(false)
- const [displayOrder, setDisplayOrder] = useState(false)
+//  const [displayGiver, setDisplayGiver] = useState(false)
+//  const [displayOrder, setDisplayOrder] = useState(false)
 
- function toggleGiver(){
-    setDisplayGiver(displayGiver => !displayGiver)
-}
+//  function toggleGiver(){
+//     setDisplayGiver(displayGiver => !displayGiver)
+// }
 
-function toggleOrder(){
-    setDisplayOrder(displayOrder => !displayOrder)
-}
+// function toggleOrder(){
+//     setDisplayOrder(displayOrder => !displayOrder)
+// }
 
 	return (  
     

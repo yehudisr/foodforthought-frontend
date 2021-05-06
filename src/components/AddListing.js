@@ -56,13 +56,13 @@ function AddListing({handleOpen}){
         <> 
        
                 <form onSubmit={handleSubmit} >
-                <input name="name" placeholder="Name" 
+                <Input name="name" placeholder="Name" 
                 value={formData.name}
                 onChange={handleChange}/>
-                <input name="description" placeholder="Description" 
+                <Input name="description" placeholder="Description" 
                 value={formData.description}
                 onChange={handleChange}/>
-                <input name="amount" placeholder="Amount" 
+                <Input name="amount" placeholder="Amount" 
                 value={formData.amount}
                 onChange={handleChange}/>
                 <DateTimePicker

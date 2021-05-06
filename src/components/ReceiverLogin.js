@@ -87,35 +87,29 @@ function ReceiverLogin() {
                         pr="4.5rem"
                         placeholder="Enter password"
                         />
-                         
                         </FormControl>
                     </InputGroup>
                     </Box>
                          <Box> 
                              <Checkbox value="remember" color="primary" onChange={()=> setRememberMe(!rememberMe)}/>Remember Me
-             </Box>
+                        </Box>
                 
                     <Button type="submit" value="login" >Login</Button> 
-                    <Box><Link href="#" variant="body2" onClick={handleOpen}>
-                  {"Don't have an account? Sign Up"}
+                    {/* <Box><Link href="#" variant="body2" onClick={handleOpen}>
+                       {"Don't have an account? Sign Up"}
                  
-                </Link> </Box>
+                       </Link> </Box> */}
                 </form>  
 
               
-          
-   
-          {/* <Modal
-                open={open}
-                onClose={handleClose}
-                className={classes.modal}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-              >
-               {<div className={classes.modal_body}>
-                <Signup/>
-                 </div>}
-              </Modal> */}
+                            {/* <Modal
+                                  open={open}
+                                  onClose={handleClose}
+                                >
+                                {<div>
+                                  <Signup/>
+                                  </div>}
+                                </Modal> */}
       
         </Flex> 
      
