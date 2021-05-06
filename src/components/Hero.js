@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
-import { Box, Button, Flex, Image, Heading, Stack, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Heading, Stack, Text, Spacer } from "@chakra-ui/react"
 
 export default function Hero({
   title,
@@ -55,11 +55,24 @@ export default function Hero({
             px="4"
             lineHeight="1"
             size="md"
-            rightIcon=">>"
+            // rightIcon=">>"
           >
             {ctaText}
           </Button>
         </Link>
+        <Link to={ctaLink}>
+          <Button
+            variantColor="primary"
+            borderRadius="8px"
+            py="4"
+            px="4"
+            lineHeight="1"
+            size="md"
+            // rightIcon=">>"
+          >
+            Order Food
+          </Button>
+          </Link>
         <Text
           fontSize="xs"
           mt={2}
