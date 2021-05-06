@@ -9,8 +9,10 @@ function FoodItem({foodlisting}) {
   console.log(foodlisting.start_time, "from backend")
   const backend = foodlisting.start_time
 
-  const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString()
-  const displayEnd = new Date(`${foodlisting.end_time}`).toLocaleString()
+  const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  const displayEnd = new Date (`${foodlisting.end_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+   
+  // const displayEnd = `${new Date(`${foodlisting.end_time}`).getHours()}:${new Date(`${foodlisting.end_time}`).getMinutes()} `
   
 
     const dispatch= useDispatch()

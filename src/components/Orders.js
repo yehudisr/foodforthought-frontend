@@ -11,17 +11,17 @@ import {
   import { useState, useEffect } from 'react'
   import OrderForm from './OrderForm'
   import { useDisclosure } from "@chakra-ui/react"
-  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription, CloseButton, Box} from "@chakra-ui/react"
+  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
   import { useSelector, useDispatch } from 'react-redux'
   
 function Orders({order, setAlert}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
   const foodOrders = useSelector(state => state.foodOrder)
+ 
 
+ const displayStart = new Date(`${order.start_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  const displayEnd = new Date (`${order.end_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
       const handleOpen = () => {
         onOpen()
@@ -38,8 +38,8 @@ function Orders({order, setAlert}) {
       <Td>{order.food_giver.name}</Td>
       <Td>{order.food_giver.location}</Td>
       <Td isNumeric>{order.amount}</Td>
-      <Td>{order.start_time_display} - {order.end_time_display}</Td>
-      <Td>{ order.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
+      <Td>{displayStart} - {displayEnd}</Td>
+      <Td>{order.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
       <Td>
         { order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
       
