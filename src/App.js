@@ -8,6 +8,7 @@ import Header from './components/Header'
 import { useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setListings, fetchFoodListings} from './redux/foodListingSlice'
+import Footer from './components/Footer'
 
 function App() {
   const giver = useSelector(state => state.giver)
@@ -29,6 +30,7 @@ return (
   <div className="App">
   <Route> 
     <Header/> 
+   
   </Route>
   
   <Switch>
@@ -41,8 +43,9 @@ return (
     <Route exact path="/listings"> 
       <Receiver /> 
     </Route>
-
+    
   </Switch>
+  {/* <Footer /> */}
   </div>
 )
 
