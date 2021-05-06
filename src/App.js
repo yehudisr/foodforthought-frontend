@@ -45,7 +45,9 @@ return (
     </Route>
     
   </Switch>
-  {/* <Footer /> */}
+  <Route> 
+  <Footer />
+  </Route>
   </div>
 )
 
