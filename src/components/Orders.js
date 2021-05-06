@@ -11,14 +11,17 @@ import {
   import { useState, useEffect } from 'react'
   import OrderForm from './OrderForm'
   import { useDisclosure } from "@chakra-ui/react"
-  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
+  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription, CloseButton, Box} from "@chakra-ui/react"
   import { useSelector, useDispatch } from 'react-redux'
   
-function Orders({order}) {
+function Orders({order, setAlert}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
   const [open, setOpen] = useState(false)
   const foodOrders = useSelector(state => state.foodOrder)
- 
+
 
       const handleOpen = () => {
         onOpen()
@@ -50,14 +53,16 @@ function Orders({order}) {
             <ModalHeader bgColor="#5E8074" color="white">Place Your Order</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <OrderForm handleOpen={handleOpen} order={order}/>
+              <OrderForm handleOpen={handleOpen} order={order} setAlert={setAlert}/>
                </ModalBody>
               <ModalFooter>
               <Button onClick={onClose}>Cancel</Button>
              </ModalFooter>
           </ModalContent>
         </Modal>)}
+
         </Td>
+        
     </Tr>
    </Tbody>
               
