@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useDisclosure } from "@chakra-ui/react"
-import { updateOrder } from '../redux/foodOrderSlice'
+import { updateOrder, setOrders } from '../redux/foodOrderSlice'
 import emailjs from 'emailjs-com'
+import { FormControl, FormLabel, Input, Button} from "@chakra-ui/react"
 
 
 function OrderForm({order, handleOpen, onOrdered, ordered}){
     const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
-    const [formData, setFormData] = useState({  note: "", amount: "", email: ""})
+    const [formData, setFormData] = useState({  note: "", amount: "1", email: ""})
 
     function handleChange(event){
         setFormData({
@@ -47,13 +48,14 @@ function handleSubmit(event){
         body: JSON.stringify(newOrder)
         })
         .then (res => res.json())
-        .then(data => {  console.log(data)
+        .then(data => {  console.log(data, "order")
             if (data.id === null){
             alert("you already ordered this!")
             } 
             else {
             handleOpen()
             onOrdered(ordered => !ordered)
+            dispatch(updateOrder(data))
            
             // fetch(`http://localhost:3000/decrease/${data.food_listing.id}`) 
             // .then (res => res.json())
@@ -63,7 +65,7 @@ function handleSubmit(event){
              }
         
         })
-        setFormData({  note: "", amount: "", email:""})
+        setFormData({  note: "", amount: "1", email:""})
         sendEmail(event)
 
 }
@@ -72,13 +74,13 @@ function handleSubmit(event){
     return(
         <> 
                 <form onSubmit={handleSubmit} >
-                <input name="amount" placeholder="Amount" 
+                <Input name="amount" placeholder="Amount" 
                 value={formData.amount}
                 onChange={handleChange}/>
-                <input name="note" placeholder="Note" 
+                <Input name="note" placeholder="Note" 
                 value={formData.description}
                 onChange={handleChange}/>
-                <input name="email" type="email" placeholder="email" value={formData.email}
+                <Input name="email" type="email" placeholder="email" value={formData.email}
                 onChange={handleChange} />
                 <input type="submit" value="Place Order" />
                 </form>

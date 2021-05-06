@@ -16,9 +16,15 @@ const foodOrderSlice = createSlice({
      
       updateOrder: (state, action)=> {
           console.log(state.entities, "state")
-        const order = state.find((order)=> order.id === action.payload.id)
-        order.amount = action.payload
-        // return listing.amount = action.payload
+        const orderArr = state.map((order)=> {
+        if (order.id === action.payload.id){
+          return action.payload
+        } else {
+          return order
+        }
+        })
+        return orderArr
+
       },
     
     }

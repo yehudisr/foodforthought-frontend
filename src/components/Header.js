@@ -81,9 +81,9 @@ function Header(props){
             pt={[4, 4, 0, 0]}
           >
             <MenuItems to="/">Home</MenuItems>
-            <MenuItems to="/how">How It works </MenuItems>
-            <MenuItems to="/faetures">Features </MenuItems>
-            <MenuItems to="/pricing">Pricing </MenuItems>
+            <MenuItems to="/how">About Us </MenuItems>
+            {/* <MenuItems to="/faetures">Features </MenuItems>
+            <MenuItems to="/pricing">Pricing </MenuItems> */}
             <MenuItems to="/signup" isLast>
               <Button
                 size="sm"
