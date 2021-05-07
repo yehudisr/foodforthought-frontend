@@ -3,13 +3,13 @@ import "jspdf-autotable"
 import { format } from "date-fns"
 
 
-const generatePDF = foodListings => {
+const generatePDF = (foodListings, giver) => {
     console.log(foodListings)
  
   const doc = new jsPDF()
+ 
 
-
-  const tableColumn = ["Id", "Name", "Description", "Amount"]
+  const tableColumn = ["Id", "Name", "Description"]
   // define an empty array of rows
   const tableRows = []
 
@@ -19,7 +19,7 @@ const generatePDF = foodListings => {
       listing.id,
       listing.name,
       listing.description,
-      listing.amount,
+      // listing.amount,
     
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
     ]
@@ -29,13 +29,25 @@ const generatePDF = foodListings => {
 
 
 
-  doc.autoTable(tableColumn, tableRows, { startY: 20 })
-//   const date = Date().split(" ");
+  doc.autoTable(tableColumn, tableRows, { startY: 40 })
+  const date = Date().split(" ");
 //   // we use a date string to generate our filename.
-//   const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
+  const dateStr = `${date[1]} ${date[3]}`;
 //   // ticket title. and margin-top + margin-left
-  doc.text(`Food Donations within the last month`, 14, 15)
-  // we define the name of our PDF file.
+  doc.setFontSize(18);
+  doc.text(`Food For Thought`, 14, 15)
+  doc.setFontSize(16);
+  doc.text(`${giver.name}`, 14, 25)
+  doc.setFontSize(12);
+  doc.text(`${giver.location}`, 195, 35, null, null, "right")
+  doc.setFontSize(12);
+  doc.text(`Food Donations for the month of ${dateStr}`, 14, 35)
+
+   const bottomText = "No goods or services were provided in exchange for this contribution. Food For Thought is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code."
+  
+  // doc.setFontSize(12);
+  // doc.text(bottomText, 14, 300)
+ 
   doc.save(`report.pdf`)
 };
 

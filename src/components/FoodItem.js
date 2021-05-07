@@ -6,8 +6,6 @@ import {Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Button, Badge } fr
   
 function FoodItem({foodlisting}) {
 
-  console.log(foodlisting.start_time, "from backend")
-  const backend = foodlisting.start_time
 
   const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
   const displayEnd = new Date (`${foodlisting.end_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })

@@ -59,7 +59,7 @@ function FoodListings() {
                     <Box>
                     <Tooltip label="Download Report" placement="top-end" aria-label="A tooltip">
                       <Button bgColor="#167572" color="white"
-                      onClick={() => generatePDF(foodListings)}
+                      onClick={() => generatePDF(foodListings, giver)}
                     >
                       Generate Report
                     </Button>
