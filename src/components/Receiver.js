@@ -24,9 +24,10 @@ function Receiver(){
     return(
         <Box p="8">
         <Box padding="4">
-            <Text fontSize="4xl">Hello, {receiver.name} </Text>
+            <Text fontSize="4xl">Hello, {receiver.name}!</Text>
+            <Text fontSize="4xl"> Today's Listings </Text>
              </Box>
-                {foodOrders ? <FoodOrders/> : "No Listings Today"}
+                {foodOrders.length > 0 ? <FoodOrders/> : "No Listings Today"}
         </Box>
     )
 }

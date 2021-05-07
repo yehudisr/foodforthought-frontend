@@ -19,12 +19,12 @@ function FoodListings() {
 
     console.log(foodListings, "foodlistings")
 
-    // const todayList = foodListings
+    // const sortedListings = [...foodListings]
     // .filter(listing => {
     //   return listing.start_time === new Date()
     // })
     // .sort((a,b)=> {
-    //   return a.start_time - b.start_time
+    //   return b.created_at - a.created_at
     // })
     // console.log(todayList)
     

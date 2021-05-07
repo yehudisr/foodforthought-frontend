@@ -90,9 +90,13 @@ export default function Hero({
             lineHeight="1"
             size="md"
             onClick={toggleOrder}
+            // to="/listings"
           >
-            Order Food
-          </Button> {displayOrder && <ReceiverLogin/>}
+          {/* <Link to="/listings">
+           Order Food</Link> */}
+           Order Food
+          </Button> 
+          {displayOrder && <ReceiverLogin/>}
           {/* </Link> */}
         {/* <Text
           fontSize="xs"

@@ -26,8 +26,8 @@ return (
 		</Column>
 		<Column>
 			<Heading>Services</Heading>
-			<FooterLink href="#">Post Food Listing</FooterLink>
-			<FooterLink href="#">Place an Order</FooterLink>
+			<FooterLink href="/giver">Post Food Listing</FooterLink>
+			<FooterLink href="/listings">Place an Order</FooterLink>
 		</Column>
 		<Column>
 			<Heading>Contact Us</Heading>
