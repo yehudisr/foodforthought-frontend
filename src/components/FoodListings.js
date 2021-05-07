@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
 import DownloadLink from "react-download-link"
 import generatePDF from "./ReportGenerator"
-import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Tooltip} from "@chakra-ui/react"
+import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Tooltip, Text} from "@chakra-ui/react"
 import { useDisclosure } from "@chakra-ui/react"
 
 function FoodListings() {
@@ -17,13 +17,26 @@ function FoodListings() {
     const foodListings = useSelector(state => state.foodListing)
     const { isOpen, onOpen, onClose } = useDisclosure() 
 
+    console.log(foodListings, "foodlistings")
+
+    // const todayList = foodListings
+    // .filter(listing => {
+    //   return listing.start_time === new Date()
+    // })
+    // .sort((a,b)=> {
+    //   return a.start_time - b.start_time
+    // })
+    // console.log(todayList)
+    
     const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
+    
     
     useEffect(()=>{
     fetch(`http://localhost:3000/food_givers/${giver.id}`)
       .then(res => res.json())
       .then(data => {
         dispatch(setListings(data.food_listings))
+        console.log(foodListings, "inside fetch")
       })
     }, [])
 
@@ -68,23 +81,24 @@ function FoodListings() {
                                     </ModalFooter>
                                   </ModalContent>
                                 </Modal>
-                  
-                  }
-                <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"  boxShadow="lg"> 
-                    <Table variant="simple">
-                    <Thead > 
-                        <Tr backgroundColor='#EEF0EB'>
-                        <Th>Name</Th>
-                        <Th>Description</Th>
-                        <Th isNumeric>Amount</Th>
-                        <Th>Times</Th>
-                        <Th>Status</Th>
-                        <Th>Edit</Th>
-                        </Tr>
-                    </Thead>
-                    {giverListings}
-                    </Table>
-                </Box>
+                                } 
+
+          
+                        <Box spacing={4} borderWidth="1px" borderRadius="lg" overflow="hidden"  boxShadow="lg"> 
+                            <Table variant="simple">
+                            <Thead > 
+                                <Tr backgroundColor='#EEF0EB'>
+                                <Th>Name</Th>
+                                <Th>Description</Th>
+                                <Th isNumeric>Amount</Th>
+                                <Th>Times</Th>
+                                <Th>Status</Th>
+                                <Th>Edit</Th>
+                                </Tr>
+                            </Thead>
+                            {giverListings}
+                            </Table>
+                        </Box> 
             </Box>
     )
 

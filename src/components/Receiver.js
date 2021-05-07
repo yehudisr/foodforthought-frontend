@@ -26,7 +26,7 @@ function Receiver(){
         <Box padding="4">
             <Text fontSize="4xl">Hello, {receiver.name} </Text>
              </Box>
-        {foodOrders ? <FoodOrders/> : null}
+                {foodOrders ? <FoodOrders/> : "No Listings Today"}
         </Box>
     )
 }
