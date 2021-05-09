@@ -119,11 +119,11 @@ function GiverSignUp() {
                     onChange={handleChange}
                 /></FormControl></Box><Spacer/>
 
-                {errors.map(error => 
+                {/* {errors.map(error => 
                 <p style={{ color: "red"}} key={error}>
                 {error}
                 </p>
-                )}
+                )} */}
 
                 <input type="submit" value="SIGN UP" className="signup-btn" />
             </form>
