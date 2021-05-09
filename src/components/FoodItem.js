@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import { removeListing } from '../redux/foodListingSlice'
 import {Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Button, Badge } from "@chakra-ui/react"
-
+import { DeleteIcon } from '@chakra-ui/icons'
 
   
 function FoodItem({foodlisting}) {
@@ -36,7 +36,7 @@ function FoodItem({foodlisting}) {
           <Td isNumeric>{foodlisting.amount}</Td>
           <Td>{displayStart} - {displayEnd}</Td>
           <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
-          <Td> <Button bgColor="#167572" onClick={handleDelete} color="white">delete</Button></Td>
+          <Td> <Button bgColor="#167572" onClick={handleDelete} color="white"><DeleteIcon/></Button></Td>
         </Tr>
       </Tbody>
               

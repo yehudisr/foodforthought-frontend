@@ -1,6 +1,6 @@
 import FoodItem from './FoodItem'
 import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Box, Button, Spacer, Stack } from "@chakra-ui/react"
-import { AddIcon } from '@chakra-ui/icons'
+import { AddIcon, DownloadIcon } from '@chakra-ui/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import AddListing from './AddListing'
 import { useState, useEffect } from 'react'
@@ -61,7 +61,7 @@ function FoodListings() {
                       <Button bgColor="#167572" color="white"
                       onClick={() => generatePDF(foodListings, giver)}
                     >
-                      Generate Report
+                       Report <DownloadIcon/>
                     </Button>
                     </Tooltip>
                     </Box>

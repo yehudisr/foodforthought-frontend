@@ -1335,12 +1335,19 @@
   dependencies:
     "@chakra-ui/utils" "1.7.0"
 
-"@chakra-ui/icons@^1.0.12":
-  "integrity" "sha512-ubMXJkohCVLjCe+5JTy4jYuSqBGXRCAqOSRV6IE/phEd8+qfWLFOVa9Q6X0FvdM7HGco8mCFwtlZPwJvHNtyLg=="
-  "resolved" "https://registry.npmjs.org/@chakra-ui/icons/-/icons-1.0.12.tgz"
-  "version" "1.0.12"
+"@chakra-ui/icon@1.1.9":
+  "integrity" "sha512-lmZHK4O+Wo7LwxRsQb0KmtOwq2iACESxwQgackuj7NPHbAsdF2/y3t2f7KCD+dTKGxoauEMgU2nVLePZWjtpTQ=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/icon/-/icon-1.1.9.tgz"
+  "version" "1.1.9"
   dependencies:
-    "@chakra-ui/icon" "1.1.8"
+    "@chakra-ui/utils" "1.8.0"
+
+"@chakra-ui/icons@^1.0.13":
+  "integrity" "sha512-twDpFz2uPVboMTEI4QA2y3EJND3G4+/9AVs730fgnnfhTw4EOJt0Lhfm4Spq1qi1LgHF16x4/Lao1E2imB5lWw=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/icons/-/icons-1.0.13.tgz"
+  "version" "1.0.13"
+  dependencies:
+    "@chakra-ui/icon" "1.1.9"
     "@types/react" "^17.0.0"
 
 "@chakra-ui/image@1.0.14":
@@ -1705,6 +1712,16 @@
   "integrity" "sha512-fMZOnWBh/TzAYufkpeVw3yMNxKmYHEkB93luDpIJgxGt4mrbl+A66pd5GvJSGK1N34WYbjWRiJrrSvRI548eZA=="
   "resolved" "https://registry.npmjs.org/@chakra-ui/utils/-/utils-1.7.0.tgz"
   "version" "1.7.0"
+  dependencies:
+    "@types/lodash.mergewith" "4.6.6"
+    "css-box-model" "1.2.1"
+    "framesync" "5.3.0"
+    "lodash.mergewith" "4.6.2"
+
+"@chakra-ui/utils@1.8.0":
+  "integrity" "sha512-BWIhKcXnLbOIwCTKeNcOStNwk9RyYVA9xRRFPGK6Kp3EhrxP0rDwAbu4D3o3qAc+yhIDhGmPaIj1jRXHB5DTfg=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/utils/-/utils-1.8.0.tgz"
+  "version" "1.8.0"
   dependencies:
     "@types/lodash.mergewith" "4.6.6"
     "css-box-model" "1.2.1"
@@ -6642,9 +6659,9 @@
   "version" "0.1.4"
 
 "hosted-git-info@^2.1.4":
-  "integrity" "sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg=="
-  "resolved" "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.8.tgz"
-  "version" "2.8.8"
+  "integrity" "sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw=="
+  "resolved" "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.8.9.tgz"
+  "version" "2.8.9"
 
 "hpack.js@^2.1.6":
   "integrity" "sha1-h3dMCUnlE/QuhFdbPEVoH63ioLI="
