@@ -1,14 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux'
-import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Button} from "@chakra-ui/react"
+import { Input } from "@chakra-ui/react"
 import DateTimePicker from 'react-datetime-picker'
-import { useState, useRef } from 'react'
-import { useDisclosure } from "@chakra-ui/react"
+import { useState } from 'react'
 import { addListing } from '../redux/foodListingSlice'
 
 function AddListing({handleOpen}){
    const giver = useSelector(state => state.giver)
-   const { isOpen, onOpen, onClose } = useDisclosure()
-   const initialRef = useRef()
    const dispatch = useDispatch()
    const [date, setDate] = useState(new Date())
    const [endTime, setEndTime] = useState(new Date())

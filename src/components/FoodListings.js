@@ -1,5 +1,5 @@
 import FoodItem from './FoodItem'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Box, Button, Spacer, Stack } from "@chakra-ui/react"
+import { Table, Thead, Tr, Th, Box, Button, Spacer, Stack } from "@chakra-ui/react"
 import { AddIcon, DownloadIcon } from '@chakra-ui/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import AddListing from './AddListing'
@@ -19,16 +19,16 @@ function FoodListings() {
 
     console.log(foodListings, "foodlistings")
 
-    // const sortedListings = [...foodListings]
+    const sortedListings = [...foodListings]
     // .filter(listing => {
     //   return listing.start_time === new Date()
     // })
-    // .sort((a,b)=> {
-    //   return b.created_at - a.created_at
-    // })
-    // console.log(todayList)
+    .sort((a,b)=> {
+      return new Date(b.created_at) - new Date(a.created_at)
+    })
+    console.log(sortedListings, "sorted")
     
-    const giverListings = foodListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
+    const giverListings = sortedListings.map(foodlisting => <FoodItem key={foodlisting.name} foodlisting={foodlisting} />)
     
     
     useEffect(()=>{

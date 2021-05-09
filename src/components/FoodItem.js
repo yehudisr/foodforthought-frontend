@@ -1,13 +1,13 @@
-import {useSelector, useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { removeListing } from '../redux/foodListingSlice'
-import {Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Button, Badge } from "@chakra-ui/react"
+import { Tbody, Tr, Td, Button, Badge, Tooltip } from "@chakra-ui/react"
 import { DeleteIcon } from '@chakra-ui/icons'
 
   
 function FoodItem({foodlisting}) {
 
 
-  const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  const displayStart = new Date(`${foodlisting.start_time}`).toLocaleString('en-US', {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })
   const displayEnd = new Date (`${foodlisting.end_time}`).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
    
   // const displayEnd = `${new Date(`${foodlisting.end_time}`).getHours()}:${new Date(`${foodlisting.end_time}`).getMinutes()} `
@@ -30,14 +30,23 @@ function FoodItem({foodlisting}) {
       <>
 
         <Tbody>
-        <Tr>
+       { new Date(`${foodlisting.start_time}`).toLocaleString('en-US', {month: 'long', day: 'numeric'}) === new Date().toLocaleString('en-US', {month: 'long', day: 'numeric'}) ?  
+          (<Tooltip label="Current Listing" placement="bottom"    aria-label="A tooltip"><Tr bgColor="#F9E4C3">
           <Td>{foodlisting.name}</Td>
           <Td>{foodlisting.description}</Td>
           <Td isNumeric>{foodlisting.amount}</Td>
           <Td>{displayStart} - {displayEnd}</Td>
           <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
           <Td> <Button bgColor="#167572" onClick={handleDelete} color="white"><DeleteIcon/></Button></Td>
-        </Tr>
+        </Tr></Tooltip>) : 
+          (<Tr>
+          <Td>{foodlisting.name}</Td>
+          <Td>{foodlisting.description}</Td>
+          <Td isNumeric>{foodlisting.amount}</Td>
+          <Td>{displayStart} - {displayEnd}</Td>
+          <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
+          <Td> <Button bgColor="#167572" onClick={handleDelete} color="white"><DeleteIcon/></Button></Td>
+        </Tr>) }
       </Tbody>
               
     </>  
