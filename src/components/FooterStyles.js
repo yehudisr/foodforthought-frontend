@@ -19,7 +19,6 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: 1000px;
 	margin: 0 auto;
-	/* background: red; */
 `
 
 export const Column = styled.div`
@@ -59,3 +58,9 @@ color: #5E8074;
 margin-bottom: 40px;
 font-weight: bold;
 `;
+export const Text = styled.p`
+font-size: 14px;
+color: #5E8074;
+margin-top: 20px;
+
+`

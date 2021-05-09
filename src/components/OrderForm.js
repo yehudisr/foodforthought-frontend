@@ -7,15 +7,21 @@ import { FormControl, FormLabel, Input, Button, Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription, CloseButton, Box} from "@chakra-ui/react"
+import SmSForm from './SmSForm' 
 
 
 function OrderForm({order, handleOpen, setAlert}){
     const dispatch = useDispatch()
     const receiver = useSelector(state => state.receiver)
     const [formData, setFormData] = useState({  note: "", amount: "1", email: ""})
+    const [checked, setChecked] = useState(false)
     
     const onClose = () => setAlert(false)
 
+
+    function handleCheck() {
+        setChecked(checked => !checked)
+    }
 
 
     function handleChange(event){
@@ -79,12 +85,26 @@ function handleSubmit(event){
                 <Input name="amount" placeholder="Amount" 
                 value={formData.amount}
                 onChange={handleChange}/>
+                <br/><br/>
                 <Input name="note" placeholder="Note" 
                 value={formData.description}
                 onChange={handleChange}/>
+               <br/><br/>
                 <Input name="email" type="email" placeholder="email" value={formData.email}
                 onChange={handleChange} />
                 {/* <Button onSubmit={handleSubmit} >Place Order</Button> */}
+
+                 {/* <label>
+                <input
+                  type="checkbox"
+                  name="isChecked"
+                  checked={checked}
+                  onChange={handleCheck}
+                /> Send Me SMS</label>
+
+                {!checked ? null : (<SmSForm/>)}  
+                <br/><br/> */}
+                <br/><br/>
                 <input type="submit" value="Place Order"/>
                 </form>
                

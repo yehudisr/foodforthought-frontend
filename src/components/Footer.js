@@ -5,7 +5,7 @@ Container,
 Row,
 Column,
 FooterLink,
-Heading,
+Heading, Text
 } from "./FooterStyles"
 
 const Footer = () => {
@@ -52,6 +52,7 @@ return (
 		</Column>
 		</Row>
 	</Container>
+	<Text>&copy; Food For Thought {new Date().getFullYear()}</Text>
 	</Box>
 );
 };

@@ -63,22 +63,27 @@ function AddListing({handleOpen}){
                 <Input name="name" placeholder="Name" 
                 value={formData.name}
                 onChange={handleChange}/>
+                <br/><br/>
                 <Input name="description" placeholder="Description" 
                 value={formData.description}
                 onChange={handleChange}/>
+                <br/><br/>
                 <Input name="amount" placeholder="Amount" 
                 value={formData.amount}
                 onChange={handleChange}/>
+                <br/><br/>
                 <DateTimePicker
                    name="start_time"
                   onChange={onChange}
                   value={date}
                 />
+                <br/><br/>
                 <DateTimePicker
                    name="end_time"
                   onChange={timeChange}
                   value={endTime}
                 />
+                <br/><br/>
           
                 <input type="submit" value="Add your listing" />
                 </form>
