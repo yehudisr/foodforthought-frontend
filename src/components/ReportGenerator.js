@@ -9,16 +9,18 @@ const generatePDF = (foodListings, giver) => {
   const doc = new jsPDF()
  
 
-  const tableColumn = ["Id", "Name", "Description"]
+  const tableColumn = ["Id", "Name", "Description", "Date"]
   // define an empty array of rows
   const tableRows = []
 
   // for each ticket pass all its data into an array
   foodListings.forEach(listing => {
+    const dateListed = new Date(`${listing.created_at}`).toLocaleString('en-US', {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })
     const listingData = [
       listing.id,
       listing.name,
       listing.description,
+      dateListed
       // listing.amount,
     
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
