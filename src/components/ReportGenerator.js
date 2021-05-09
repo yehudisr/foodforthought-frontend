@@ -4,7 +4,11 @@ import { format } from "date-fns"
 
 
 const generatePDF = (foodListings, giver) => {
-    console.log(foodListings)
+    console.log(foodListings, "generate report")
+
+    const monthlyListing = [...foodListings]
+    .filter( listing => {
+      return new Date(`${listing.start_time}`).toLocaleString('en-US', {month: 'long'}) === new Date().toLocaleString('en-US', {month: 'long'}) })
  
   const doc = new jsPDF()
  
@@ -14,7 +18,7 @@ const generatePDF = (foodListings, giver) => {
   const tableRows = []
 
   // for each ticket pass all its data into an array
-  foodListings.forEach(listing => {
+  monthlyListing.forEach(listing => {
     const dateListed = new Date(`${listing.created_at}`).toLocaleString('en-US', {month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })
     const listingData = [
       listing.id,
