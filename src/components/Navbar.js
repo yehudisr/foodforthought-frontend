@@ -40,14 +40,12 @@ function Navbar() {
             direction={["column", "row", "row", "row"]}
             pt={[4, 4, 0, 0]}
           >
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/how">About Us </NavLink>
-            {receiver && <NavLink to="/listings">Listings</NavLink>}
-            {/* <MenuItems to="/pricing">Pricing </MenuItems> */}
+            <Box p="4" ><NavLink to="/">Home</NavLink></Box>
+            <Box p="4" ><NavLink to="/how">About Us </NavLink></Box>
+            {receiver && <Box p="4" ><NavLink to="/listings">Listings</NavLink></Box>}
+          
            { giver || receiver ?  
-            // <Box p="4" >
-            // <button onClick={handleLogout}>Logout</button>
-            //   </Box>  
+           
               <NavLink to="/" isLast>
               <Button
                 size="sm"
@@ -85,23 +83,7 @@ function Navbar() {
               </Button>
             </NavLink>}
           </Flex>
-      {/* <Box p="4" >
-        <NavLink
-          to='/events'
-          exact
-          
-        > Events</NavLink>
-        </Box>
-      <Box p="4" >
-        <NavLink
-          to={`/profile/${currentUser.id}`}
-          exact
-          
-        >My Events</NavLink>
-        </Box> */}
-        {/* <Box p="4" >
-        <button onClick={handleLogout}>Logout</button>
-        </Box> */}
+   
       </Flex> 
       {/* <Flex> <Box p="4" >
         <NavLink
