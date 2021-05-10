@@ -32,7 +32,39 @@ function Orders({order, setAlert}) {
        <>
 
     <Tbody>
-    <Tr>
+   { new Date(`${order.end_time}`).toLocaleString() < new Date().toLocaleString() ?  (<Tr bgColor="#F1F2EE"> 
+      <Td>{order.name}</Td>
+      <Td>{order.description}</Td>
+      <Td>{order.food_giver.name}</Td>
+      <Td>{order.food_giver.location}</Td>
+      {/* <Td isNumeric>{order.total_amount}</Td> */}
+      <Td>{displayStart} - {displayEnd}</Td>
+      <Td>{order.amount > 0 ? <Badge bgColor="#DE9A2D" color="#ECF0E9">{order.amount} Left</Badge> : <Badge bgColor="#698B81" color="#ECF0E9">Taken</Badge>}</Td>
+      <Td> <Badge bgColor="#698B81" color="#ECF0E9">Unavailable</Badge>
+        {/* { order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
+      
+      {open && ( <Modal
+        
+          isOpen={isOpen}
+          onClose={onClose}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader bgColor="#5E8074" color="white">Place Your Order</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <OrderForm handleOpen={handleOpen} order={order} setAlert={setAlert}/>
+               </ModalBody>
+              <ModalFooter>
+              <Button onClick={onClose}>Cancel</Button>
+             </ModalFooter>
+          </ModalContent>
+        </Modal>
+        )} */}
+
+        </Td>
+        
+    </Tr>) : (<Tr>
       <Td>{order.name}</Td>
       <Td>{order.description}</Td>
       <Td>{order.food_giver.name}</Td>
@@ -63,7 +95,7 @@ function Orders({order, setAlert}) {
 
         </Td>
         
-    </Tr>
+    </Tr>) }
    </Tbody>
               
             </>  
