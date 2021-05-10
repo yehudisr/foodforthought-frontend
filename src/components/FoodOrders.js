@@ -34,7 +34,7 @@ return(
                             <Box flex="1">
                               <AlertTitle>Success!</AlertTitle>
                               <AlertDescription display="block">
-                                Your order has gone through! Check your email for more details.
+                                Thank you for rescuing delicous food! Check your email for your order confirmation.
                               </AlertDescription>
                             </Box>
                             <CloseButton onClick={handleAlert}  position="absolute" right="8px" top="8px" />
