@@ -13,7 +13,7 @@ const generatePDF = (foodListings, giver) => {
   const doc = new jsPDF()
  
 
-  const tableColumn = ["Id", "Name", "Description", "Date"]
+  const tableColumn = ["Id", "Name", "Description"," Amount", "Date"]
   // define an empty array of rows
   const tableRows = []
 
@@ -24,8 +24,9 @@ const generatePDF = (foodListings, giver) => {
       listing.id,
       listing.name,
       listing.description,
+      listing.amount,
       dateListed
-      // listing.amount,
+      
     
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
     ]

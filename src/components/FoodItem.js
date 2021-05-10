@@ -34,9 +34,9 @@ function FoodItem({foodlisting}) {
           (<Tooltip label="Current Listing" placement="bottom"    aria-label="A tooltip"><Tr bgColor="#F9E4C3">
           <Td>{foodlisting.name}</Td>
           <Td>{foodlisting.description}</Td>
-          <Td isNumeric>{foodlisting.amount}</Td>
+          <Td isNumeric>{foodlisting.total_amount}</Td>
           <Td>{displayStart} - {displayEnd}</Td>
-          <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
+          <Td>{foodlisting.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">{foodlisting.amount} Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
           <Td> <Button bgColor="#167572" onClick={handleDelete} color="white"><DeleteIcon/></Button></Td>
         </Tr></Tooltip>) : 
           (<Tr>
