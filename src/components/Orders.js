@@ -37,9 +37,9 @@ function Orders({order, setAlert}) {
       <Td>{order.description}</Td>
       <Td>{order.food_giver.name}</Td>
       <Td>{order.food_giver.location}</Td>
-      <Td isNumeric>{order.amount}</Td>
+      {/* <Td isNumeric>{order.total_amount}</Td> */}
       <Td>{displayStart} - {displayEnd}</Td>
-      <Td>{order.amount > 0 ? <Badge bgColor="#698B81" color="#ECF0E9">Available</Badge> : <Badge bgColor="#DE9A2D" color="#ECF0E9">Taken</Badge>}</Td>
+      <Td>{order.amount > 0 ? <Badge bgColor="#DE9A2D" color="#ECF0E9">{order.amount} Left</Badge> : <Badge bgColor="#698B81" color="#ECF0E9">Taken</Badge>}</Td>
       <Td>
         { order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
       

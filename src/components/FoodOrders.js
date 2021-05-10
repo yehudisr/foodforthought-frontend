@@ -46,7 +46,7 @@ return(
             <Th>Description</Th>
             <Th>Creator</Th>
             <Th>Location</Th>
-            <Th isNumeric>Amount</Th>
+            {/* <Th isNumeric>Amount</Th> */}
             <Th>Times</Th>
             <Th>Status</Th>
             <Th>Order</Th>
