@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { setGiver } from '../redux/giverSlice'
+import { setReceiver } from '../redux/receiverSlice'
 import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react"
 
-function GiverSignUp() {
+function ReceiverSignUp() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -14,7 +14,6 @@ function GiverSignUp() {
     email: "",
     password: "",
     location: "",
-    category: "",
   })
 
 
@@ -29,7 +28,7 @@ function GiverSignUp() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("http://localhost:3000/signup", {
+    fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,23 +45,23 @@ function GiverSignUp() {
         });
       })
       .then((data) => {
-        localStorage.setItem("setGiver", data)
-        dispatch(setGiver(data))
-        history.push(`/giver/${data.id}`)
+        localStorage.setItem("setReceiver", data)
+        dispatch(setReceiver(data))
+        history.push(`/listings`)
       })
       .catch((error) => {
         setErrors(error.errors)
       });
   }
 
-  const { name, email, password, location, category } = formData
+  const { name, email, password, location} = formData
 
   return (
    <Center  h="630px" >
 
             <Flex alignItems="center">
             <form onSubmit={handleSubmit}>
-                <Text >Sign Up To Give</Text><Spacer/>
+                <Text >Sign Up To Order</Text><Spacer/>
 
                  <Box p={4}> <FormControl   isRequired>
                         <FormLabel>Name</FormLabel>
@@ -108,21 +107,7 @@ function GiverSignUp() {
                     onChange={handleChange}
                 /> </FormControl></Box><Spacer/>
                 
-                 <Box p={4}> <FormControl   isRequired>
-                        <FormLabel>Category</FormLabel>
-                <Input
-                    type="text"
-                    name="category"
-                    className="signup-box"
-                    value={category}
-                    onChange={handleChange}
-                /></FormControl></Box><Spacer/>
-
-                {/* {errors.map(error => 
-                <p style={{ color: "red"}} key={error}>
-                {error}
-                </p>
-                )} */}
+    
 
                 <input type="submit" value="SIGN UP" className="signup-btn" />
             </form>
@@ -132,4 +117,4 @@ function GiverSignUp() {
   );
 }
 
-export default GiverSignUp
+export default ReceiverSignUp
