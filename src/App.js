@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setListings, fetchFoodListings} from './redux/foodListingSlice'
 import Footer from './components/Footer'
 import { setOrders } from './redux/foodOrderSlice'
-import GiverSignUp from './components/GiverSignUp'
+import SignUp from './components/SignUp'
 import ReceiverSignUp from './components/ReceiverSignUp'
 
 function App() {
@@ -51,11 +51,8 @@ return (
       <Receiver /> 
     </Route>
     <Route exact path="/signup">
-              <GiverSignUp />
+              <SignUp />
           </Route>
-        <Route exact path="/order">
-              <ReceiverSignUp />
-        </Route>
     <Route path="*">
               <h1>404 not found</h1>
    </Route>
