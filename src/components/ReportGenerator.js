@@ -26,8 +26,6 @@ const generatePDF = (foodListings, giver) => {
       listing.description,
       listing.amount,
       dateListed
-      
-    
     //   format(new Date(ticket.updated_at), "yyyy-MM-dd")
     ]
   
@@ -40,7 +38,7 @@ const generatePDF = (foodListings, giver) => {
   const date = Date().split(" ");
 //   // we use a date string to generate our filename.
   const dateStr = `${date[1]} ${date[3]}`;
-//   // ticket title. and margin-top + margin-left
+
   doc.setFontSize(18);
   doc.text(`Food For Thought`, 14, 15)
   doc.setFontSize(16);
@@ -55,7 +53,7 @@ const generatePDF = (foodListings, giver) => {
   // doc.setFontSize(12);
   // doc.text(bottomText, 14, 300)
  
-  doc.save(`report.pdf`)
+  doc.save(`report_${dateStr}.pdf`)
 };
 
 export default generatePDF
