@@ -3,6 +3,7 @@ import FoodOrders from './FoodOrders'
 import { Box, Spacer, Text } from "@chakra-ui/react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setOrders } from '../redux/foodOrderSlice'
+import MapContainer from './MapContainer'
 
 function Receiver(){
 
@@ -25,6 +26,7 @@ function Receiver(){
         <Box p="8">
         <Box padding="4">
             <Text fontSize="4xl">Hello, {receiver.name}!</Text>
+            <MapContainer/>
             <Text fontSize="4xl"> Today's Listings </Text>
              </Box>
                 {foodOrders.length > 0 ? <FoodOrders/> : "No Listings Today"}
