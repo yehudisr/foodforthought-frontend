@@ -70,12 +70,13 @@ const { isLoaded } = useJsApiLoader({
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
 
 const locations = foodOrders.map(order => order.food_giver.location)
+console.log(locations)
 
-function locationDisplay(locations) { 
-    locations.map(
-    location => 
-    { console.log(location)
-        Geocode.fromAddress(location).then(
+// function locationDisplay(locations) { 
+//     const display = locations.map(
+//     location => 
+//     { console.log(location)
+      const kingston =  Geocode.fromAddress('270 Kingtson ave').then(
         (response) => { 
             console.log(response)
         const { lat, lng } = response.results[0].geometry.location;
@@ -85,10 +86,10 @@ function locationDisplay(locations) {
           console.error(error);
         }
        )
-    }
-//  return { lat, lng }
-)
-}
+//  return display
+//     }
+// )
+// }
 //   locationDisplay(locations)
   
 //   const locations = [
@@ -141,11 +142,11 @@ function locationDisplay(locations) {
           onUnmount={onUnmount}
           >
           {
-            locations.map(item => {
-              return (
-              <Marker key={item.name} position={item.location} onClick={() => onSelect(item)}/>
-              )
-            })
+            // locations.map(item => {
+            //   return (
+              <Marker key={kingston} position={kingston} onClick={() => onSelect(kingston)}/>
+            //   )
+            // })
          }
           {
             selected.location && 

@@ -29,7 +29,7 @@ function FoodOrders() {
 
 return(
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="lg"> 
-    {alert &&  <Flex justifyContent="center"><Alert color="#F1F2EE" bgColor="#698B81" position="fixed" status="success" w="300px">
+    {alert &&  <Flex justifyContent="center"><Alert color="#F1F2EE" bgColor="#698B81" position="fixed" top="450px" status="success" w="300px">
                            
                             <Box flex="1">
                               <AlertTitle>Success!</AlertTitle>

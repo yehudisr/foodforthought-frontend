@@ -32,7 +32,7 @@ function Orders({order, setAlert}) {
        <>
 
     <Tbody>
-   { new Date(`${order.end_time}`).toLocaleString() < new Date().toLocaleString() ?  (<Tr bgColor="#F1F2EE"> 
+   { new Date(`${order.end_time}`).toLocaleString() < new Date().toLocaleString() ?  (<Tr > 
       <Td>{order.name}</Td>
       <Td>{order.description}</Td>
       <Td>{order.food_giver.name}</Td>

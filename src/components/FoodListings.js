@@ -93,7 +93,7 @@ function FoodListings() {
                                 <Th isNumeric>Amount</Th>
                                 <Th>Times</Th>
                                 <Th>Status</Th>
-                                <Th>Edit</Th>
+                                <Th>Delete</Th>
                                 </Tr>
                             </Thead>
                             {giverListings}

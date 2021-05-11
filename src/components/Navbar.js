@@ -46,7 +46,7 @@ function Navbar() {
           
            { giver || receiver ?  
            
-              <NavLink to="/" isLast>
+              <Box p="4" > <NavLink to="/" isLast>
               <Button
                 size="sm"
                 rounded="md"
@@ -64,7 +64,7 @@ function Navbar() {
               >
                 Logout
               </Button>
-            </NavLink> : <NavLink to="/signup" isLast>
+            </NavLink></Box> :  <Box p="4" ><NavLink to="/signup" isLast>
               <Button
                 size="sm"
                 rounded="md"
@@ -81,7 +81,7 @@ function Navbar() {
               >
                 Sign Up
               </Button>
-            </NavLink>}
+            </NavLink></Box>}
           </Flex>
    
       </Flex> 

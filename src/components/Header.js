@@ -60,7 +60,7 @@ function Header(props){
         color={["#5E8074", "#5E8074", "primary.700", "primary.700"]}
         {...props}
       >
-        <Flex align="center"> <Image src={logo} w="100px"/>
+        <Flex align="center"> <Link to={"/"}><Image src={logo} w="100px"/></Link>
           {/* <Logo
             w="100px"
             color={["white", "white", "primary.500", "primary.500"]}
