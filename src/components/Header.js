@@ -1,7 +1,7 @@
 import React from "react"
 import Navbar from "./Navbar"
 import { Image, Spacer, Box, Flex, Text, Button, Stack, PseudoBox }  from "@chakra-ui/react"
-import logo from './logo.png'
+import logowhite from './logowhite.png'
 import { Link } from "react-router-dom"
 
 
@@ -60,7 +60,7 @@ function Header(props){
         color={["#5E8074", "#5E8074", "primary.700", "primary.700"]}
         {...props}
       >
-        <Flex align="center"> <Link to={"/"}><Image src={logo} w="100px"/></Link>
+        <Flex align="center"> <Link to={"/"}><Image src={logowhite} w="175px"/></Link>
           {/* <Logo
             w="100px"
             color={["white", "white", "primary.500", "primary.500"]}

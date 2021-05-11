@@ -9,6 +9,8 @@ import {
 } from 'react-places-autocomplete'
 import Geocode from "react-geocode"
 import {useSelector} from 'react-redux'
+import FindLongLat from './FindLongLat'
+import smallicon from './smallicon.png'
 
 
 const libraries = ["places"]
@@ -91,27 +93,46 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
 // )
 // }
 //   locationDisplay(locations)
+
+// const platform = new H.service.Platform({
+//   'apikey': 'process.env.REACT_APP_GOOGLE_API_KEY'
+// });
+
+// // Get an instance of the geocoding service:
+// const service = platform.getSearchService();
+
+// // Call the geocode method with the geocoding parameters,
+// // the callback and an error callback function (called if a
+// // communication error occurs):
+// service.geocode({
+//   q: '200 S Mathilda Ave, Sunnyvale, CA'
+// }, (result) => {
+//   // Add a marker for each location found
+//   result.items.forEach((item) => {
+//     map.addObject(new H.map.Marker(item.position));
+//   });
+// }, alert);
   
   const locations = [
     {
-      name: "Location 1",
+      name: "Basil Pizza",
       location: { 
-        lat: 40.6703,
-        lng: -73.9423 
+        lat: 40.67044,
+        lng: -73.94230 
       },
     },
     {
-      name: "Location 2",
+      name: "Tammam Cafe",
       location: { 
-        lat: 40.6702,
-        lng: -73.9363
+        lat: 40.67293,
+        lng: -73.95021
       },
     },
     {
-      name: "Location 3",
+      name: "Mozarella",
       location: { 
-        lat: 41.3773,
-        lng: 2.1585
+        lat: 40.67049,
+        lng: -73.93650
       },
     },
     {
@@ -144,10 +165,11 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
           {
             locations.map(item => {
               return (
-              <Marker key={item.name} position={item.location} onClick={() => onSelect(item)}/>
+              <Marker icon={{url: smallicon}} key={item.name} position={item.location} onClick={() => onSelect(item)}/>
               )
             })
          }
+         {/* <FindLongLat/> */}
           {
             selected.location && 
             (
