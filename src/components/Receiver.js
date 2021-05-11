@@ -8,6 +8,7 @@ import MapContainer from './MapContainer'
 function Receiver(){
 
     const [foodListings, setFoodListings] = useState([])
+    const [search, setSearch] = useState('')
     const receiver = useSelector(state => state.receiver)
     const foodOrders = useSelector(state => state.foodOrder)
     const dispatch = useDispatch()

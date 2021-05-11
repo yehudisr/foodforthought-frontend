@@ -69,84 +69,84 @@ const { isLoaded } = useJsApiLoader({
 
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
 
-const locations = foodOrders.map(order => order.food_giver.location)
-console.log(locations)
+// const locations = foodOrders.map(order => order.food_giver.location)
+// console.log(locations)
 
 // function locationDisplay(locations) { 
 //     const display = locations.map(
 //     location => 
 //     { console.log(location)
-      const kingston =  Geocode.fromAddress('270 Kingtson ave').then(
-        (response) => { 
-            console.log(response)
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
-           },
-            (error) => {
-          console.error(error);
-        }
-       )
+    //   const kingston =  Geocode.fromAddress('270 Kingtson ave').then(
+    //     (response) => { 
+    //         console.log(response)
+    //     const { lat, lng } = response.results[0].geometry.location;
+    //     console.log(lat, lng);
+    //        },
+    //         (error) => {
+    //       console.error(error);
+    //     }
+    //    )
 //  return display
 //     }
 // )
 // }
 //   locationDisplay(locations)
   
-//   const locations = [
-//     {
-//       name: "Location 1",
-//       location: { 
-//         lat: 40.6703,
-//         lng: -73.9423 
-//       },
-//     },
-//     {
-//       name: "Location 2",
-//       location: { 
-//         lat: 40.6702,
-//         lng: -73.9363
-//       },
-//     },
-    // {
-    //   name: "Location 3",
-    //   location: { 
-    //     lat: 41.3773,
-    //     lng: 2.1585
-    //   },
-    // },
-    // {
-    //   name: "Location 4",
-    //   location: { 
-    //     lat: 41.3797,
-    //     lng: 2.1682
-    //   },
-    // },
-    // {
-    //   name: "Location 5",
-    //   location: { 
-    //     lat: 41.4055,
-    //     lng: 2.1915
-    //   },
-    // }
-//   ];
+  const locations = [
+    {
+      name: "Location 1",
+      location: { 
+        lat: 40.6703,
+        lng: -73.9423 
+      },
+    },
+    {
+      name: "Location 2",
+      location: { 
+        lat: 40.6702,
+        lng: -73.9363
+      },
+    },
+    {
+      name: "Location 3",
+      location: { 
+        lat: 41.3773,
+        lng: 2.1585
+      },
+    },
+    {
+      name: "Location 4",
+      location: { 
+        lat: 41.3797,
+        lng: 2.1682
+      },
+    },
+    {
+      name: "Location 5",
+      location: { 
+        lat: 41.4055,
+        lng: 2.1915
+      },
+    }
+  ];
   
 
   return (
 
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
-          zoom={11}
+          zoom={13}
           center={currentPosition}
           options={options}
           onLoad={onLoad}
           onUnmount={onUnmount}
           >
           {
-            // locations.map(item => {
-            //   return (
-              <Marker key={kingston} position={kingston} onClick={() => onSelect(kingston)}/>
-            //   )
-            // })
+            locations.map(item => {
+              return (
+              <Marker key={item.name} position={item.location} onClick={() => onSelect(item)}/>
+              )
+            })
          }
           {
             selected.location && 
