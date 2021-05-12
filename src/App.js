@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import { setOrders } from './redux/foodOrderSlice'
 import SignUp from './components/SignUp'
 import ReceiverSignUp from './components/ReceiverSignUp'
+import About from './components/About'
 
 function App() {
   const giver = useSelector(state => state.giver)
@@ -42,7 +43,7 @@ return (
       <Home/>
     </Route>
     <Route path="/about">
-              {/* <About /> */}
+              <About />
           </Route>
     <Route exact path="/giver/:id"> 
       <Giver/> 

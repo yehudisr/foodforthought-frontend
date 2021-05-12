@@ -41,7 +41,7 @@ function Navbar() {
             pt={[4, 4, 0, 0]}
           >
             <Box p="4" ><NavLink to="/">Home</NavLink></Box>
-            <Box p="4" ><NavLink to="/how">About Us </NavLink></Box>
+            <Box p="4" ><NavLink to="/about">About Us </NavLink></Box>
             {receiver && <Box p="4" ><NavLink to="/listings">Listings</NavLink></Box>}
           
            { giver || receiver ?  
