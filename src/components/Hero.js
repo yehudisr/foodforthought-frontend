@@ -17,8 +17,7 @@ export default function Hero({
 
   const [displayGiver, setDisplayGiver] = useState(false)
   const [displayOrder, setDisplayOrder] = useState(false)
-  const [givers, setGivers] = useState([])
-  const [total, setTotal] = useState(0)
+  
  
   function toggleGiver(){
      setDisplayGiver(displayGiver => !displayGiver)
@@ -28,20 +27,7 @@ export default function Hero({
      setDisplayOrder(displayOrder => !displayOrder)
  }
 
-//  useEffect(() => {
-//         fetch(`http://localhost:3000/food_givers`)
-//             .then(res => res.json())
-//             .then(data => { console.log(data)
-//                 setGivers(data)
-//             })
-//     }, [total])
-//                 const totallistings = givers.map(giver => giver.all_listings_count)
-//          console.log(totallistings)
-//         const sum = totallistings.reduce(function (accumulator, currentValue) {
-//         return accumulator + currentValue;
-// })
-//         // setTotal(sum)
-// console.log(sum)
+
 
   
 
@@ -142,7 +128,9 @@ export default function Hero({
           textAlign="center"
           color="#5D8074"
           fontWeight="bold"
-          >{givers.length}</Heading>
+          > 9
+          {/* {givers.length} */}
+          </Heading>
           <Heading
           as="h4"
           size="md"
@@ -161,7 +149,8 @@ export default function Hero({
           textAlign="center"
           color="#5D8074"
           fontWeight="bold"
-          >{total}
+          >
+          {/* {total} */}120
           </Heading>
           <Heading
           as="h4"

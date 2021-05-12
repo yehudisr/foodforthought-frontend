@@ -16,16 +16,17 @@ function About(){
       mb={18}
     >
     
-   <Box p={8}> <Heading as="h1"
+   <Box p={2}> <Heading as="h1"
           size="xl"
           fontWeight="bold"
           color="primary.800"
           textAlign={["center", "center", "left", "left"]
          }
+         verticalAlign="top"
         >Our Mission
           </Heading></Box>
          
-     
+     <Box p={8}> 
          <Heading
           as="h2"
           size="md"
@@ -36,7 +37,7 @@ function About(){
           textAlign={["center", "center", "left", "left"]}
         >
           Our mission is to inspire and empower everyone to take action against food waste. We know that to live and breathe this every day, we need to turn our words into actions. With this in mind we have set out a new ambition - to contribute in every way we can to building the global food waste movement. It's only when we all come together to fight food waste, that we'll be able to generate a positive change in society.
-        </Heading>
+        </Heading></Box>
   </Flex>
     )
 }

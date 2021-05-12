@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Button, Spacer, Flex, Container, Image} from '@chakra-ui/react'
 import GiverLogin from './GiverLogin'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ReceiverLogin from './ReceiverLogin'
 import Header from "./Header"
 import Footer from "./Footer"
@@ -9,17 +9,21 @@ import LandingLayout from "./LandingLayout";
 
 
 export default function Home() {
+//   const [givers, setGivers] = useState([])
+//   const [total, setTotal] = useState(0)
 
-//  const [displayGiver, setDisplayGiver] = useState(false)
-//  const [displayOrder, setDisplayOrder] = useState(false)
-
-//  function toggleGiver(){
-//     setDisplayGiver(displayGiver => !displayGiver)
-// }
-
-// function toggleOrder(){
-//     setDisplayOrder(displayOrder => !displayOrder)
-// }
+//  useEffect(() => {
+//         fetch(`http://localhost:3000/food_givers`)
+//             .then(res => res.json())
+//             .then(data => { console.log(data)
+//                 setGivers(data)
+//             })
+//     }, [])
+//                 const totallistings = givers.map(giver => giver.all_listings_count)
+//          console.log(totallistings)
+//         const sum = totallistings => totallistings.reduce((a, b) => a + b, 0)
+//         setTotal(sum)
+// console.log(total)
 
 	return (  
     
@@ -32,35 +36,7 @@ export default function Home() {
           ctaLink="/login"
         />
       </LandingLayout>
-        // <Container maxW="container.sm" centerContent >
-        //     {/* <Box
-            
-        // bgImage="url('https://images.unsplash.com/photo-1598514982901-ae62764ae75e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80')"
-        // bgPosition="center"
-        // bgRepeat="no-repeat"
-        // > */}
-            // {/* <Heading fontSize="50px" textAlign="center">
-			// 		Food For Thought
-			// 	</Heading>
-            //      */}
+       
 
-            // <Box p={4} maxW="sm" borderWidth="1px" borderRadius="lg">
-            // <Button size="sm" borderRadius="md" onClick={toggleGiver}>List My Food</Button>
-            // {displayGiver && <GiverLogin/>} </Box><Spacer/>
-            // <Box p={4} maxW="sm" borderWidth="1px" borderRadius="lg">
-            // <Button size="sm" borderRadius="md" onClick={toggleOrder}>Order Food</Button>
-            // {displayOrder && <ReceiverLogin/>}
-            // </Box>
-        
-     
-     
-                
-                // {/* </Box> */}
-         
-          
-
-    //   </Container>
-
-        
 	)
 }

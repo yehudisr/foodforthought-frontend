@@ -17,7 +17,7 @@ const libraries = ["places"]
 
 const mapContainerStyle = {
   height: "45vh",
-  width: "90vw",
+  width: "95vw",
 }
 const options = {
   styles: mapStyles,
@@ -136,14 +136,14 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
       },
     },
     {
-      name: "Location 4",
+      name: "Buttermilk Channel",
       location: { 
         lat: 41.3797,
         lng: 2.1682
       },
     },
     {
-      name: "Location 5",
+      name: "Lincoln Market",
       location: { 
         lat: 41.4055,
         lng: 2.1915
@@ -156,7 +156,7 @@ Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
 
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
-          zoom={13}
+          zoom={14}
           center={currentPosition}
           options={options}
           onLoad={onLoad}
