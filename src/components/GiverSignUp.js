@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { setGiver } from '../redux/giverSlice'
-import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react"
+import { Box, Spacer, Text, Input, FormControl, Center, FormLabel, Flex} from "@chakra-ui/react"
 
 function GiverSignUp() {
   const dispatch = useDispatch();

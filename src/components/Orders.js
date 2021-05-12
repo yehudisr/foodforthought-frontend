@@ -1,18 +1,17 @@
 import {
-    Table,
-    Thead,
+    
     Tbody,
-    Tfoot,
+    
     Tr,
-    Th,
+    
     Td,
-    TableCaption, Button, Badge
+     Button, Badge
   } from "@chakra-ui/react"
-  import { useState, useEffect } from 'react'
+  import { useState } from 'react'
   import OrderForm from './OrderForm'
   import { useDisclosure } from "@chakra-ui/react"
-  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input} from "@chakra-ui/react"
-  import { useSelector, useDispatch } from 'react-redux'
+  import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay} from "@chakra-ui/react"
+  import { useSelector } from 'react-redux'
   
 function Orders({order, setAlert}) {
   const { isOpen, onOpen, onClose } = useDisclosure() 
@@ -41,27 +40,6 @@ function Orders({order, setAlert}) {
       <Td>{displayStart} - {displayEnd}</Td>
       <Td>{order.amount > 0 ? <Badge bgColor="#DE9A2D" color="#ECF0E9">{order.amount} Left</Badge> : <Badge bgColor="#698B81" color="#ECF0E9">Taken</Badge>}</Td>
       <Td> <Badge bgColor="#698B81" color="#ECF0E9">Unavailable</Badge>
-        {/* { order.amount > 0 ? <Button size="sm" variant="ghost" borderRadius="md" onClick={handleOpen}>Order</Button> : null }
-      
-      {open && ( <Modal
-        
-          isOpen={isOpen}
-          onClose={onClose}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader bgColor="#5E8074" color="white">Place Your Order</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody pb={6}>
-              <OrderForm handleOpen={handleOpen} order={order} setAlert={setAlert}/>
-               </ModalBody>
-              <ModalFooter>
-              <Button onClick={onClose}>Cancel</Button>
-             </ModalFooter>
-          </ModalContent>
-        </Modal>
-        )} */}
-
         </Td>
         
     </Tr>) : (<Tr>

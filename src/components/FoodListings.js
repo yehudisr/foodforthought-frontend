@@ -1,13 +1,12 @@
 import FoodItem from './FoodItem'
-import { Table, Thead, Tr, Th, Box, Button, Spacer, Stack } from "@chakra-ui/react"
+import { Table, Thead, Tr, Th, Box, Button, Spacer } from "@chakra-ui/react"
 import { AddIcon, DownloadIcon } from '@chakra-ui/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import AddListing from './AddListing'
 import { useState, useEffect } from 'react'
-import { setListings, fetchFoodListings} from '../redux/foodListingSlice'
-import DownloadLink from "react-download-link"
+import { setListings } from '../redux/foodListingSlice'
 import generatePDF from "./ReportGenerator"
-import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, FormControl, FormLabel, Input, Tooltip, Text, Flex} from "@chakra-ui/react"
+import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Tooltip, Flex} from "@chakra-ui/react"
 import { useDisclosure } from "@chakra-ui/react"
 
 function FoodListings() {

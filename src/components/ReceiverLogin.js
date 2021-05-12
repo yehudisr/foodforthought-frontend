@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react";
+import { Box, Spacer,  Button, Input, FormControl, Center, FormLabel, InputGroup, Checkbox, Flex, InputRightElement } from "@chakra-ui/react";
 import { setReceiver } from '../redux/receiverSlice'
 
 

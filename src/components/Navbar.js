@@ -1,6 +1,5 @@
-import { Route, Switch, NavLink, Redirect, useHistory } from 'react-router-dom'
-import { useState } from 'react'
-import { Button, ButtonGroup, Box, Flex, Spacer } from "@chakra-ui/react"
+import { NavLink, useHistory } from 'react-router-dom'
+import { Button, Box, Flex} from "@chakra-ui/react"
 import { useDispatch, useSelector } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
 import {setListings} from '../redux/foodListingSlice'

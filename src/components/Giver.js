@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+
 import FoodListings from './FoodListings'
-import { Box, Spacer, Text } from "@chakra-ui/react"
-import { useSelector, useDispatch } from 'react-redux'
-import { setGiver } from '../redux/giverSlice.js'
-import AddListing from './AddListing'
+import { Box, Text } from "@chakra-ui/react"
+import { useSelector } from 'react-redux'
+
 
 function Giver(){
    

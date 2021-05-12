@@ -1,9 +1,8 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
-import { Box, Button, Flex, Image, Heading, Stack, Text, Spacer } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Heading, Stack, Text} from "@chakra-ui/react"
 import GiverLogin from './GiverLogin'
-import { useState, useEffect  } from 'react'
+import { useState, useEffect } from 'react'
 import ReceiverLogin from './ReceiverLogin'
 
 export default function Hero({

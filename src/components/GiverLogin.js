@@ -1,10 +1,11 @@
 
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {setGiver} from '../redux/giverSlice'
-import { Box, Spacer, Text, Button, Input, Grid, GridItem, Link, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, InputRightElement } from "@chakra-ui/react"
+import { Box, Spacer, Button, Input, Checkbox, FormControl, Center, FormLabel, InputGroup, Flex, Link } from '@chakra-ui/react'
 import { setListings } from '../redux/foodListingSlice'
+import SignUp from './SignUp'
 
 
 
@@ -13,17 +14,9 @@ function GiverLogin() {
     const dispatch = useDispatch()
     const [errors, setErrors] = useState([])
     const [rememberMe, setRememberMe] = useState(false)
-    const [open, setOpen] = useState(false);
-    const giver = useSelector(state => state.giver)
    
-
-  const handleOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
+ 
+  
     const [formData, setFormData] = useState({
       password: "",
       email: ""
@@ -102,23 +95,13 @@ function GiverLogin() {
                          </Box>
                 
                           <Button type="submit" value="login" >Login</Button> 
-                    {/* <Box><Link href="#" variant="body2" onClick={handleOpen}>
+                    <Box><Link href="/signup" variant="body2" >
                               {"Don't have an account? Sign Up"}
                          </Link> 
-                  </Box> */}
+                  </Box>
              </form>  
 
-              
-          
-   
-          {/* <Modal
-                open={open}
-                onClose={handleClose}
-              >
-               {<div>
-                <Signup/>
-                 </div>}
-              </Modal> */}
+      
       
         </Flex>
      

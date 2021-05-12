@@ -1,23 +1,23 @@
 import React from "react"
 import Navbar from "./Navbar"
-import { Image, Spacer, Box, Flex, Text, Button, Stack, PseudoBox }  from "@chakra-ui/react"
+import { Image, Box, Flex, Text }  from "@chakra-ui/react"
 import logowhite from './logowhite.png'
 import { Link } from "react-router-dom"
 
 
-const MenuItems = props => {
-    const { children, isLast, to = "/", ...rest } = props
-    return (
-      <Text
-        mb={{ base: isLast ? 0 : 8, sm: 0 }}
-        mr={{ base: 0, sm: isLast ? 0 : 8 }}
-        display="block"
-        {...rest}
-      >
-        <Link to={to}>{children}</Link>
-      </Text>
-    )
-  } 
+// const MenuItems = props => {
+//     const { children, isLast, to = "/", ...rest } = props
+//     return (
+//       <Text
+//         mb={{ base: isLast ? 0 : 8, sm: 0 }}
+//         mr={{ base: 0, sm: isLast ? 0 : 8 }}
+//         display="block"
+//         {...rest}
+//       >
+//         <Link to={to}>{children}</Link>
+//       </Text>
+//     )
+//   } 
 
   const CloseIcon = () => (
     <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -78,15 +78,8 @@ function Header(props){
          <Navbar/>
         </Box>
       </Flex>
-
-
-        // <div className="App-header">
-        //    <Image src={logo} w="100px"/>
-        //    <Spacer/>
-        //    <Navbar/>
-        // </div>
         
     )
 }
 
-export default Header;
+export default Header

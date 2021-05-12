@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import FoodOrders from './FoodOrders'
-import { Box, Spacer, Text } from "@chakra-ui/react"
+import { Box, Text } from "@chakra-ui/react"
 import { useSelector, useDispatch } from 'react-redux'
 import { setOrders } from '../redux/foodOrderSlice'
 import MapContainer from './MapContainer'
 
 function Receiver(){
 
-    const [foodListings, setFoodListings] = useState([])
-    const [search, setSearch] = useState('')
+    
+    // const [search, setSearch] = useState('')
     const receiver = useSelector(state => state.receiver)
     const foodOrders = useSelector(state => state.foodOrder)
     const dispatch = useDispatch()

@@ -1,20 +1,7 @@
 import Orders from './Orders'
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription, CloseButton, Box, Flex
-  } from "@chakra-ui/react"
-  import { useSelector, useDispatch } from 'react-redux'
-  import { useState } from 'react'
+import { Table, Thead, Tr, Th, Alert, AlertTitle, AlertDescription, CloseButton, Box, Flex } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 function FoodOrders() {
     
