@@ -20,7 +20,7 @@ Food for Thought is an app that seeks to create a community partnership that bri
 
 Food For Thought was developed as the Flatiron Software Engineering capstone project by Yehudis Raitman. The client interface is built with React functional components. Redux is incorporated for global state management across the app, and custom Styled and Chakra framework were used for styling. 
 
-The client interface interface connects to a Rails API server which is used to persist data to a PostgreSQL database. The repo link for the Rails API server can be found here:https://github.com/yehudisr/backend-phase5.
+The client interface interface connects to a Rails API server which is used to persist data to a PostgreSQL database. The repo link for the Rails API server can be found here: https://github.com/yehudisr/foodforthought-backend.
 
 ### General Usage
 
