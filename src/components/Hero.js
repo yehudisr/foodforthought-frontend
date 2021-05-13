@@ -140,7 +140,7 @@ export default function Hero({
           lineHeight={1.5}
           // textAlign={["center", "center", "left", "left"]}
         >
-          cafes, restaurants, bakeries & event caterers on board
+          event caterers, cafes, restaurants, bakeries & markets signed on
         </Heading></Box>
       <Box p="4" w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
       <Heading 

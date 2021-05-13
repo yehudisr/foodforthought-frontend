@@ -14,6 +14,7 @@ const generatePDF = (foodListings, giver) => {
  
 
   const tableColumn = ["Id", "Name", "Description"," Amount", "Date"]
+
   // define an empty array of rows
   const tableRows = []
 
@@ -32,7 +33,7 @@ const generatePDF = (foodListings, giver) => {
     tableRows.push(listingData)
   })
 
-
+ doc.setDrawColor(150,150,150)
 
   doc.autoTable(tableColumn, tableRows, { startY: 40 })
   const date = Date().split(" ");

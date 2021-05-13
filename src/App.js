@@ -5,13 +5,13 @@ import Giver from './components/Giver'
 import Receiver from './components/Receiver'
 import Home from './components/Home'
 import Header from './components/Header'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Footer from './components/Footer'
 import SignUp from './components/SignUp'
 import About from './components/About'
 
 function App() {
-  const giver = useSelector(state => state.giver)
+  // const giver = useSelector(state => state.giver)
  
 
   // useEffect(()=>{

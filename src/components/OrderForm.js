@@ -1,12 +1,8 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useDisclosure } from "@chakra-ui/react"
 import { updateOrder } from '../redux/foodOrderSlice'
 import emailjs from 'emailjs-com'
-import { FormControl, FormLabel, Input, Button, Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription, CloseButton, Box} from "@chakra-ui/react"
+import {  Input, Button} from "@chakra-ui/react"
 import SmSForm from './SmSForm' 
 
 

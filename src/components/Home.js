@@ -30,8 +30,9 @@ export default function Home() {
     <LandingLayout>
         <Hero
           title="Partnering with local organizations to feed the community"
-          subtitle="Order food here, list your food here"
-          image="https://source.unsplash.com/collection/404339/800x600"
+          subtitle="We have set out to create a community partnership that brings everyone together, doing their part to feed the hungry and save food at the same time. Join us!"
+          // image="https://source.unsplash.com/collection/404339/800x600"
+          image="https://images.unsplash.com/photo-1619371067654-315ebd0f0087?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
           ctaText="List Your Food"
           ctaLink="/login"
         />

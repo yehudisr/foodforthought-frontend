@@ -35,8 +35,9 @@ function About(){
           fontWeight="normal"
           lineHeight={1.5}
           textAlign={["center", "center", "left", "left"]}
-        >
-          Our mission is to inspire and empower everyone to take action against food waste. We know that to live and breathe this every day, we need to turn our words into actions. With this in mind we have set out a new ambition - to contribute in every way we can to building the global food waste movement. It's only when we all come together to fight food waste, that we'll be able to generate a positive change in society.
+        > Each day in the United States approximately one pound of food per person is wasted. This equates to 103 million tons (81.4 billion pounds) of food waste generated in America in 2017, or between 30-40 percent of the food supply, according to the United States Department of Agriculture (USDA).
+
+          Our vision is to allow everyone to contribute to the battle against food waste and hunger. We have set out to create a community partnership that brings everyone together, doing their part to feed the hungry and save food at the same time. Join us in our mission!
         </Heading></Box>
   </Flex>
     )
